@@ -7,4 +7,4 @@ Generalization of the <a href="https://github.com/cheniel/alfred-tea-master">Alf
 
 Placeholder data is a reference of the planets in the solar system.
 
-Still under development.
+Actively under development, but completely functional. 
