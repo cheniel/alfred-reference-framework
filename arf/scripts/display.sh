@@ -4,18 +4,18 @@
 # arguments:
 # 	[line to parse] [data file] [escape string]
 
-. lib/workflowHandler.sh
+. arf/lib/workflowHandler.sh
 
 parseData() {
 
 	data=${1#$3}
 
 	# get the number of fields
-	numberOfFields=`grep -o ":" <<<"$1" | wc -l`
+	numberOfFields=`grep -o ":" <<< "$1" | wc -l`
 
 	# get the first line
 	nameLine=`sed '1q;d' $2`
-
+	
 	# save the names of the fields into an array
 	for i in $(seq 1 $numberOfFields); do 
 		names[$i]=`echo $nameLine | cut -d ':' -f$i`
@@ -62,6 +62,8 @@ parseData() {
 	done
 
 	let "numberOfFields=numberOfFields+1"
+
+	# modify so that it can handle go back values which have colons in them
 	addResult "" "Go back" "" "icon.png" "no" "`echo $data | cut -d ':' -f$numberOfFields`"
 
 }

@@ -1,8 +1,8 @@
 #!/bin/bash
 # using users input, finds the matching results
 
-. lib/workflowHandler.sh # import workflow handler
-. scripts/display.sh
+. arf/lib/workflowHandler.sh # import workflow handler
+. arf/scripts/display.sh
 
 escapeString="-----"
 
@@ -51,7 +51,7 @@ if [[ $2 != *$escapeString* ]]; then
 	fi
 
 else # the escape string was found
-	parseData "$2" $1 $escapeString
+	parseData "$2" "$1" $escapeString
 fi
 
 
