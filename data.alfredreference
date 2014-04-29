@@ -14,6 +14,7 @@ $1:$1:$1
 :: Data is everything after the first four lines that is not a comment
 :: Don't use a colon in your values.
 :: You can remove all of the comments except the last one to speed up search time.
+:: Only the first field, in this case, the planet names, will be searched.
 
 ::::::::::::::::: DATA ::::::::::::::::::
 Sun:1.9891 × 10^30 kilograms:0
