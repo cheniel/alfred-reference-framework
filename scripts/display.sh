@@ -2,7 +2,7 @@
 # given a type of tea, displays the information about the tea
 # the query will be the argument passed to it by alfredTeaSearch.
 # arguments:
-# 	[line to parse] [data file] [escape string]
+# 	[line to parse] [data file] [escape string] [users input]
 
 . lib/workflowHandler.sh
 
@@ -12,7 +12,6 @@ parseData() {
 
 	# get the number of fields
 	numberOfFields=`grep -o ":" <<<"$1" | wc -l`
-	let "numberOfFields=numberOfFields+1"
 
 	# get the first line
 	nameLine=`sed '1q;d' $2`
@@ -56,6 +55,9 @@ parseData() {
 		addResult "`echo $data | cut -d ':' -f$i`" "`echo $data | cut -d ':' -f$i`" "${names[$i]}" "${icons[$i]}" "${valid[$i]}" "$autocompleteString"
 	
 	done
+
+	let "numberOfFields=numberOfFields+1"
+	addResult "" "Go back" "" "icon.png" "no" "`echo $data | cut -d ':' -f$numberOfFields`"
 
 }
 

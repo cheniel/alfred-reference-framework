@@ -22,7 +22,7 @@ if [[ $2 != *$escapeString* ]]; then
 	# loop through the lines of the response file
 	while read -r line; do
 
-		if [ $lineNumber -gt 2 ]; then
+		if [ $lineNumber -gt 4 ]; then
 
 			# if the query is found in the first part or second part of the line (delimited by :)
 			value=`echo $line | cut -d ':' -f1`
@@ -30,10 +30,10 @@ if [[ $2 != *$escapeString* ]]; then
 			# convert to lowercase
 			valueSearch=`echo $value | tr '[:upper:]' '[:lower:]'`
 
-			if [[ $valueSearch == *$query* || $teaTypeSearch == *$query* ]]; then
+			if [[ ( $2 == "all" && ${#value} -gt 0 ) || $valueSearch == *$query* || $teaTypeSearch == *$query* ]]; then
 				
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Select for more information" "icon.png" "no" "$escapeString$line"
+				addResult "$line" "$value" "Select for more information" "icon.png" "no" "$escapeString$line:$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"

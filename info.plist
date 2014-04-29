@@ -27,8 +27,14 @@
 				<integer>127</integer>
 				<key>keyword</key>
 				<string>ref</string>
+				<key>runningsubtext</key>
+				<string>Searching {planets}</string>
 				<key>script</key>
 				<string>./scripts/search.sh data.alfredreference {query} </string>
+				<key>subtext</key>
+				<string>Type name of {planet}</string>
+				<key>title</key>
+				<string>{Alfred Reference Workflow}</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
