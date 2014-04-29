@@ -7,7 +7,19 @@
 	<key>category</key>
 	<string>Tools</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>47B98BC9-1DB6-42A8-91E8-8C28BD99BC43</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>929F29F9-0823-4DFA-9735-92C6B8626DA6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>Daniel J Chen</string>
 	<key>description</key>
@@ -32,7 +44,7 @@
 				<key>script</key>
 				<string>./scripts/search.sh data.alfredreference {query} </string>
 				<key>subtext</key>
-				<string>Type name of {planet}</string>
+				<string>Type name of {planet}, or "all" to retrieve all data.</string>
 				<key>title</key>
 				<string>{Alfred Reference Workflow}</string>
 				<key>type</key>
@@ -47,12 +59,34 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>./scripts/actions.sh {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>929F29F9-0823-4DFA-9735-92C6B8626DA6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
 		<key>47B98BC9-1DB6-42A8-91E8-8C28BD99BC43</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>929F29F9-0823-4DFA-9735-92C6B8626DA6</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>
