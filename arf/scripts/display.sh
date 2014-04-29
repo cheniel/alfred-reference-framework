@@ -10,8 +10,8 @@ parseData() {
 
 	data=${1#$3}
 
-	# get the number of fields
-	numberOfFields=`grep -o ":" <<< "$1" | wc -l`
+	# get the number of fields before -_rsp_-
+	numberOfFields=`grep -o ":" <<< \`echo "$1" | sed 's/-_rsp_-.*//'\` | wc -l`
 
 	# get the first line
 	nameLine=`sed '1q;d' $2`
@@ -61,10 +61,8 @@ parseData() {
 		addResult "${argument[$i]}" "`echo $data | cut -d ':' -f$i`" "${names[$i]}" "${icons[$i]}" "${valid[$i]}" "$autocompleteString"
 	done
 
-	let "numberOfFields=numberOfFields+1"
-
 	# modify so that it can handle go back values which have colons in them
-	addResult "" "Go back" "" "icon.png" "no" "`echo $data | cut -d ':' -f$numberOfFields`"
+	addResult "" "Go back" "" "icon.png" "no" "`echo $data | sed 's/.*\-_rsp_-//'`"
 
 }
 

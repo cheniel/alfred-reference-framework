@@ -4,7 +4,7 @@
 . arf/lib/workflowHandler.sh # import workflow handler
 . arf/scripts/display.sh
 
-escapeString="-----"
+escapeString="-_arf_-"
 
 # check to see if the response file exists
 if [ ! -f "$1" ]; then
@@ -33,7 +33,7 @@ if [[ $2 != *$escapeString* ]]; then
 			if [[ ( $2 == "all" && ${#value} -gt 0 ) || $valueSearch == *$query* || $teaTypeSearch == *$query* ]]; then
 				
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Get details" "icon.png" "no" "$escapeString$line:$2"
+				addResult "$line" "$value" "Get details" "icon.png" "no" "$escapeString$line:-_rsp_-$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"
