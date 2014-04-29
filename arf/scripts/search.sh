@@ -51,9 +51,8 @@ if [[ $2 != *$escapeString* ]]; then
 	fi
 
 else # the escape string was found
-	parseData "$2" "$1" $escapeString
+	displayData "$2" "$1" $escapeString
 fi
-
 
 getXMLResults # return XML to alfred
 

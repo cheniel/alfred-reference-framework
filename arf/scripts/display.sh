@@ -6,7 +6,7 @@
 
 . arf/lib/workflowHandler.sh
 
-parseData() {
+displayData() {
 
 	data=${1#$3}
 
