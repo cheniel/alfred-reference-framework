@@ -37,23 +37,28 @@ parseData() {
 	done
 
 	# get the fourth line
-	validLine=`sed '4q;d' $2`
+	autocompleteLine=`sed '4q;d' $2`
 
 	for i in $(seq 1 $numberOfFields); do 
-		autocomplete[$i]=`echo $validLine | cut -d ':' -f$i`
+		autocomplete[$i]=`echo $autocompleteLine | cut -d ':' -f$i`
+	done
+
+	# get the fifth line
+	argumentLine=`sed '5q;d' $2`
+	for i in $(seq 1 $numberOfFields); do 
+		argument[$i]=`echo $argumentLine | cut -d ':' -f$i`
 	done
 
 	# add results
 	for i in $(seq 1 $numberOfFields); do 
 
-		if [ ${autocomplete[i]} == "yes" ]; then
-			autocompleteString=`echo $data | cut -d ':' -f2`
-		else
+		if [ ${autocomplete[i]} == "no" ]; then
 			autocompleteString="$1"
+		else
+			autocompleteString=${autocomplete[i]}
 		fi
 
-		addResult "`echo $data | cut -d ':' -f$i`" "`echo $data | cut -d ':' -f$i`" "${names[$i]}" "${icons[$i]}" "${valid[$i]}" "$autocompleteString"
-	
+		addResult "${argument[$i]}" "`echo $data | cut -d ':' -f$i`" "${names[$i]}" "${icons[$i]}" "${valid[$i]}" "$autocompleteString"
 	done
 
 	let "numberOfFields=numberOfFields+1"

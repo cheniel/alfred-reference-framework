@@ -1,13 +1,15 @@
-Name:Mass:Order From Sun    		
+Planet Name:Mass:Order From Sun    		
 field1.png:field2.png:field3.png
 no:no:no
-$1:$1:$1
+no:no:no
+:::
 
-::::::: GUIDE TO FIRST FOUR LINES :::::::
+::::::: GUIDE TO FIRST FIVE LINES :::::::
 :: Line 1 contains the value names (subtext)
 :: Line 2 contains the icons corresponding to those values
-:: Line 3 defines the valid attribute (if you don't know, it's no)
-:: Line 4 defines the autocomplete attribute (if you don't know, $1)
+:: Line 3 defines the valid attribute (if you don't know, no)
+:: Line 4 defines the autocomplete attribute (if you don't know, no)
+:: Line 5 defines the argument attribute (if you don't know, leave blank)
 
 ::::::::::::::::: NOTES :::::::::::::::::
 :: <-- Comment using at least two colons
@@ -17,15 +19,15 @@ $1:$1:$1
 :: Only the first field, in this case, the planet names, will be searched.
 
 ::::::::::::::::: DATA ::::::::::::::::::
-Sun:1.9891 × 10^30 kilograms:0
+Sun:1.9891 × 10^30 kilograms:0 							
 Mercury:0.330 x 10^24 kilograms:1
 Venus:4.87 x 10^24:2
-Earth:5.97 x 10^24 kilograms:3
+Earth:5.97 x 10^24 kilograms:3 							
 Moon:0.073 x 10^24 kilograms:3 (combined with Earth)
 Mars:0.642 x 10^24 kilograms:4
 Jupiter:1898 x 10^24 kilograms:5
 Saturn:568 x 10^24 kilograms:6
 Uranus:86.8 x 10^24 kilograms:7
 Neptune:102 x 10^24 kilograms:8
-Pluto:0.0131 x 10^24 kilograms:9
+Pluto:0.0131 x 10^24 kilograms:9 						
 :::::::::::::::::: END ::::::::::::::::::
