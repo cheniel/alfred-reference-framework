@@ -1,13 +1,12 @@
 #!/bin/bash
-#
 # main.sh
 # Part of the Alfred Reference Framework (ARF)
 #
 # Calls the correct shell script given alfred input.
 #
 
-if [ "$3" == "--dynamic" ]; then
-	echo `./arf/scripts/dynamic.sh "$1" "$2"` 	# ARF+. Create dynamic data
+if [ "$3" != "--static" ]; then
+	echo `./arf/dynamic.sh "$1" "$2"` 	# Populate data using dynamic.sh and ARF+
 else
-	echo `./arf/scripts/search.sh "$1" "$2"`	# ARF. Use default.arf
+	echo `./arf/scripts/search.sh "$1" "$2"`	# Use default.arf to get data
 fi

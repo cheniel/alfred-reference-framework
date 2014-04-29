@@ -42,14 +42,17 @@
 				<key>runningsubtext</key>
 				<string>Searching {planets}</string>
 				<key>script</key>
-				<string>./arf/main.sh arf/data/default.arf {query} 
+				<string>./arf/main.sh arf/data/default.arf {query} --static
 
 # To toggle ARF+, which allows for dynamic generation of 
 # data through the creation of the temporary .arf file 
 # using user-created dynamic.sh (from scripts)
 #
-# Add --dynamic to third argument...
-# 	e.g. ./arf/main.sh default.arf {query} --dynamic
+# Remove --static from third argument...
+# 	e.g. ./arf/main.sh arf/data/default.arf {query}
+# rather than
+# 		 ./arf/main.sh arf/data/default.arf {query} --static
+
 </string>
 				<key>subtext</key>
 				<string>Type name of {planet}, or "all" to retrieve all data.</string>

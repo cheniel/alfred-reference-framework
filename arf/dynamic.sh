@@ -87,7 +87,10 @@ addData "Hobbes" "November 18, 1985" "Male"
 
 # advice and warnings for adding data:
 # 	- single quotes, "<", ">", and other characters that pose problems with XML
-#	  will pose problems in ARF+ as well.
+#	  will pose problems in Alfred as well. ARF+ will handle a good amount of 
+#	  errors such as these by substituting characters, so using these characters
+#	  could result in unexpected behavior--e.g. colons will be converted
+#	  to dashes.
 # 	- Don't over populate the data. Remember -- Alfred only gives you 20 
 #	  reponses per search. That's a good place to cut it adding data to
 #	  reduce runtime. DEV NOTE: Could potentially hard-set these limits to 

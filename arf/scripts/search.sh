@@ -5,6 +5,7 @@
 . arf/scripts/display.sh
 
 escapeString="-_arf_-"
+MAX_RESULTS=20
 
 # check to see if the response file exists
 if [ ! -f "$1" ]; then
@@ -37,6 +38,10 @@ if [[ $2 != *$escapeString* ]]; then
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"
+
+				if [ $queriesFound -ge $MAX_RESULTS ]; then
+					break
+				fi
 			fi
 
 		else # increment line number
