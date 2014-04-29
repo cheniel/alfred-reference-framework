@@ -2,7 +2,7 @@
 # given a type of tea, displays the information about the tea
 # the query will be the argument passed to it by alfredTeaSearch.
 # arguments:
-# 	[line to parse] [data file] [escape string] [users input]
+# 	[line to parse] [data file] [escape string]
 
 . lib/workflowHandler.sh
 
