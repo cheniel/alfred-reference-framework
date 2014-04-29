@@ -57,6 +57,7 @@ setFieldNames "Name" "Birthday" "Gender"
 
 # SOLIDIFY PREFERENCES
 # Don't mess with this. Just call it once you've set your preferences
+# and before you begin to add data.
 establishPreferences
 
 # ADD DATA
