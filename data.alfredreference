@@ -1,0 +1,20 @@
+Name:Mass:Order From Sun:    		:: Value names (subtext)
+icon.png:icon.png:icon.png:			:: Icons (correspond to value names)
+no:no:no: 			  				:: Valid (if you don't know, set to no)
+:::				 					:: Autocomplete (if no, leave blank)
+
+:: <-- Comment using this (these results won't be searched)
+
+:: Data is everything after the first four lines that is not a comment
+
+Sun:1.9891 × 10^30 kilograms:0
+Mercury:0.330 x 10^24 kilograms:1
+Venus:4.87 x 10^24:2
+Earth:5.97 x 10^24 kilograms:3
+Moon:0.073 x 10^24 kilograms:3 (combined with Earth)
+Mars:0.642 x 10^24 kilograms:4
+Jupiter:1898 x 10^24 kilograms:5
+Saturn:568 x 10^24 kilograms:6
+Uranus:86.8 x 10^24 kilograms:7
+Neptune:102 x 10^24 kilograms:8
+Pluto:0.0131 x 10^24 kilograms:9
