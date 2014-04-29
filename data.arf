@@ -17,9 +17,10 @@ no:no:no
 :: Don't use a colon in your values.
 :: You can remove all of the comments except the last one to speed up search time.
 :: Only the first field, in this case, the planet names, will be searched.
+:: Cannot put ' in data
 
 ::::::::::::::::: DATA ::::::::::::::::::
-This is a value. I get searched. I'm from field 1.:I am info from field 2:I am info from field 3
+This is a value. I get searched. I am from field 1.:I am info from field 2:I am info from field 3
 Sun:1.9891 × 10^30 kilograms:N/A						
 Mercury:0.330 x 10^24 kilograms:1
 Venus:4.87 x 10^24:2
