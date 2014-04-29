@@ -38,11 +38,11 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>keyword</key>
-				<string>ref</string>
+				<string>arf</string>
 				<key>runningsubtext</key>
 				<string>Searching {planets}</string>
 				<key>script</key>
-				<string>./scripts/search.sh data.alfredreference {query} </string>
+				<string>./scripts/search.sh data.arf {query} </string>
 				<key>subtext</key>
 				<string>Type name of {planet}, or "all" to retrieve all data.</string>
 				<key>title</key>

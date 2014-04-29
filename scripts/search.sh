@@ -28,12 +28,12 @@ if [[ $2 != *$escapeString* ]]; then
 			value=`echo $line | cut -d ':' -f1`
 
 			# convert to lowercase
-			valueSearch=`echo $value | tr '[:upper:]' '[:lower:]'`
+			valueSearch=`echo "$value" | tr '[:upper:]' '[:lower:]'`
 
 			if [[ ( $2 == "all" && ${#value} -gt 0 ) || $valueSearch == *$query* || $teaTypeSearch == *$query* ]]; then
 				
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Select for more information" "icon.png" "no" "$escapeString$line:$2"
+				addResult "$line" "$value" "Get details" "icon.png" "no" "$escapeString$line:$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"
