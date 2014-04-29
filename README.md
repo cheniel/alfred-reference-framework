@@ -13,6 +13,7 @@ Actively under development, currently functional.
 
 ###Future Additions
 <ul>
+<li> Library to dynamically create .arf file using Bash (ARF+)
 <li> LaTeX Guide
 <li> Web form that allows for easy creation of "data.arf" files.
 <li> Mod to a Flashcard Framework
