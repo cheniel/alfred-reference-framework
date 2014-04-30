@@ -9,7 +9,7 @@ Generalization of the <a href="https://github.com/cheniel/alfred-tea-master">Alf
 
 Sample data is a reference of the planets in the solar system.
 
-Actively under development, currently functional.
+Actively under development, currently functional on static mode.
 
 ###Future Additions
 <ul>
