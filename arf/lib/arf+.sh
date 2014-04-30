@@ -6,13 +6,22 @@
 # Part of ARF+, which generate dynamic data to be displayed in Alfred 2.
 # 
 
+. arf/lib/workflowHandler.sh	# Handles XML
+
 numberOfFields=0
 currentLine=1
 
 # For inputting value names (mandatory)
 setFieldNames() {
+	
 	# requires at least one argument
+	if [ $# -gt 0 ]; then
 
+		numberOfFields=$#
+
+	else
+		addResult "" "ARF+ Error" "setFieldNames() received no arguments" "error.png" "no" ""
+	fi
 }
 
 # For inputting icons

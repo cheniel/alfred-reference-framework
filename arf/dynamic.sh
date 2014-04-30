@@ -58,7 +58,7 @@ setFieldNames "Name" "Birthday" "Gender"
 # SOLIDIFY PREFERENCES
 # Don't mess with this. Just call it once you've set your preferences
 # and before you begin to add data.
-establishPreferences
+establishPreferences "$data"
 
 # ADD DATA
 # Do this however you like. Here are some examples.
