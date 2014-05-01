@@ -61,7 +61,6 @@ displayData() {
 		addResult "${argument[$i]}" "`echo $data | cut -d ':' -f$i`" "${names[$i]}" "${icons[$i]}" "${valid[$i]}" "$autocompleteString"
 	done
 
-	# modify so that it can handle go back values which have colons in them
 	addResult "" "Go back" "" "icon.png" "no" "`echo $data | sed 's/.*\-_rsp_-//'`"
 
 }

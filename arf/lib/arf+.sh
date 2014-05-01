@@ -80,6 +80,7 @@ establishPreferences() {
 }
 
 # Cleans up strings for compatibility with Alfred XML
+# Remove :, < >, '
 tidy() {
 
 }

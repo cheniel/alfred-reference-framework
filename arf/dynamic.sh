@@ -93,9 +93,7 @@ addData "Hobbes" "November 18, 1985" "Male"
 #	  to dashes.
 # 	- Don't over populate the data. Remember -- Alfred only gives you 20 
 #	  reponses per search. That's a good place to cut it adding data to
-#	  reduce runtime. DEV NOTE: Could potentially hard-set these limits to 
-# 	  cause errors in the future. OR, add a result which jumps to the next 
-# 	  20 reponses.
+#	  reduce runtime.
 
 ###############################################################################
 #                           MODIFY ABOVE THIS LINE                            #
