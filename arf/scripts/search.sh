@@ -25,7 +25,7 @@ if [[ $2 != *$escapeString* ]]; then
 
 		if [ $lineNumber -gt 4 ]; then
 
-			# if the query is found in the first part or second part of the line (delimited by :)
+			# get the name of the line
 			value=`echo $line | cut -d ':' -f1`
 
 			# convert to lowercase
@@ -33,8 +33,21 @@ if [[ $2 != *$escapeString* ]]; then
 
 			if [[ ( $2 == "all" && ${#value} -gt 0 ) || $valueSearch == *$query* || $teaTypeSearch == *$query* ]]; then
 				
+				# get icon
+				if [ -f "arf/img/f1/$value.png" ]; then
+					iconString="arf/img/f1/$value.png" 
+				elif [ -f "arf/img/f1/$value.gif" ]; then
+					iconString="arf/img/f1/$value.gif" 
+				elif [ -f "arf/img/f1/$value.jpeg" ]; then
+					iconString="arf/img/f1/$value.jpeg" 
+				elif [ -f "arf/img/f1/$value.jpg" ]; then
+					iconString="arf/img/f1/$value.jpg" 
+				else
+					iconString=${icons[$i]}
+				fi
+
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Get details" "icon.png" "no" "$escapeString$line:-_rsp_-$2"
+				addResult "$line" "$value" "Get details" "$iconString" "no" "$escapeString$line:-_rsp_-$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"

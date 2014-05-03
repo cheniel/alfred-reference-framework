@@ -62,16 +62,15 @@ displayData() {
 			autocompleteString=${autocomplete[i]}
 		fi
 
-		# see if a non-default value should be used.
-		#files=$(ls "arf/img/f$i/$dataString*" 2> /dev/null | wc -l)
-		#if [ "$files" != "0" ]; then
-		#	echo "exist"
-		#else
-		#	echo "doesn't exist"
-		#fi
-
+		# get icon
 		if [ -f "arf/img/f$i/$dataString.png" ]; then
-			iconString="arf/img/f$i/$dataString.png" # TODO currently only works with .png files
+			iconString="arf/img/f$i/$dataString.png" 
+		elif [ -f "arf/img/f$i/$dataString.gif" ]; then
+			iconString="arf/img/f$i/$dataString.gif" 
+		elif [ -f "arf/img/f$i/$dataString.jpeg" ]; then
+			iconString="arf/img/f$i/$dataString.jpeg" 
+		elif [ -f "arf/img/f$i/$dataString.jpg" ]; then
+			iconString="arf/img/f$i/$dataString.jpg" 
 		else
 			iconString=${icons[$i]}
 		fi
