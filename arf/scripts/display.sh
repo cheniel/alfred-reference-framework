@@ -52,16 +52,34 @@ displayData() {
 	# add results
 	for i in $(seq 1 $numberOfFields); do 
 
+		# get the data that needs to be presented
+		dataString=`echo $data | cut -d ':' -f$i`
+
+		# check autocomplete value, fill in
 		if [ ${autocomplete[i]} == "no" ]; then
 			autocompleteString="$1"
 		else
 			autocompleteString=${autocomplete[i]}
 		fi
 
-		addResult "${argument[$i]}" "`echo $data | cut -d ':' -f$i`" "${names[$i]}" "${icons[$i]}" "${valid[$i]}" "$autocompleteString"
+		# see if a non-default value should be used.
+		#files=$(ls "arf/img/f$i/$dataString*" 2> /dev/null | wc -l)
+		#if [ "$files" != "0" ]; then
+		#	echo "exist"
+		#else
+		#	echo "doesn't exist"
+		#fi
+
+		if [ -f "arf/img/f$i/$dataString.png" ]; then
+			iconString="arf/img/f$i/$dataString.png" # TODO currently only works with .png files
+		else
+			iconString=${icons[$i]}
+		fi
+
+		addResult "${argument[$i]}" "$dataString" "${names[$i]}" "$iconString" "${valid[$i]}" "$autocompleteString"
 	done
 
-	addResult "" "Go back" "" "icon.png" "no" "`echo $data | sed 's/.*\-_rsp_-//'`"
+	addResult "" "Go back" "" "arf/img/sys/back.png" "no" "`echo $data | sed 's/.*\-_rsp_-//'`"
 
 }
 

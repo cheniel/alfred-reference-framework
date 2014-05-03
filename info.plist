@@ -77,7 +77,7 @@
 				<key>escaping</key>
 				<integer>127</integer>
 				<key>script</key>
-				<string>./scripts/actions.sh {query}</string>
+				<string>.arf/scripts/actions.sh {query}</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

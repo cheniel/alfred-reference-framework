@@ -1,12 +1,12 @@
 Planet Name:Mass:Order From Sun    		
-field1.png:field2.png:field3.png
+arf/img/f1/default.png:arf/img/f2/default.png:arf/img/f3/default.png
 no:no:no
 no:no:no
 :::
 
 ::::::: GUIDE TO FIRST FIVE LINES :::::::
 :: Line 1 contains the value names (subtext)
-:: Line 2 contains the icons corresponding to those values
+:: Line 2 contains the default icons corresponding to those values
 :: Line 3 defines the valid attribute (if you don't know, no)
 :: Line 4 defines the autocomplete attribute (if you don't know, no)
 :: Line 5 defines the argument attribute (if you don't know, leave blank)
