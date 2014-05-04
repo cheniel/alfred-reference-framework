@@ -12,9 +12,9 @@ no!no!no
 !! Line 5 defines the argument attribute (if you don't know, leave blank)
 
 !!!!!!!!!!!!!!!!! NOTES !!!!!!!!!!!!!!!!!
-!! <-- Comment using at least two colons
+!! <-- Comment using at least two bangs
 !! Data is everything after the first four lines that is not a comment
-!! Don't use a colon in your values.
+!! Don't use a bang in your values.
 !! You can remove everything from GUIDE TO THE FIRST FIVE LINES to DATA (inclusive) in this file once you are done.
 !! Only the first field, in this case, the planet names, will be searched.
 !! Cannot put ' in data
