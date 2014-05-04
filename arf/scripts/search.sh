@@ -26,7 +26,7 @@ if [[ $2 != *$escapeString* ]]; then
 		if [ $lineNumber -gt 4 ]; then
 
 			# get the name of the line
-			value=`echo $line | cut -d ':' -f1`
+			value=`echo $line | cut -d '!' -f1`
 
 			# convert to lowercase
 			valueSearch=`echo "$value" | tr '[:upper:]' '[:lower:]'`
@@ -47,7 +47,7 @@ if [[ $2 != *$escapeString* ]]; then
 				fi
 
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Get details" "$iconString" "no" "$escapeString$line:-_rsp_-$2"
+				addResult "$line" "$value" "Get details" "$iconString" "no" "$escapeString$line!-_rsp_-$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"

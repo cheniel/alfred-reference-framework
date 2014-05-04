@@ -1,34 +1,34 @@
-Planet Name:Mass:Order From Sun    		
-arf/img/f1/default.png:arf/img/f2/default.png:arf/img/f3/default.png
-no:no:no
-no:no:no
-:::
+Planet Name!Mass!Order From Sun    		
+arf/img/f1/default.png!arf/img/f2/default.png!arf/img/f3/default.png
+no!no!no
+no!no!no
+!!!
 
-::::::: GUIDE TO FIRST FIVE LINES :::::::
-:: Line 1 contains the value names (subtext)
-:: Line 2 contains the default icons corresponding to those values
-:: Line 3 defines the valid attribute (if you don't know, no)
-:: Line 4 defines the autocomplete attribute (if you don't know, no)
-:: Line 5 defines the argument attribute (if you don't know, leave blank)
+!!!!!!! GUIDE TO FIRST FIVE LINES !!!!!!!
+!! Line 1 contains the value names (subtext)
+!! Line 2 contains the default icons corresponding to those values
+!! Line 3 defines the valid attribute (if you don't know, no)
+!! Line 4 defines the autocomplete attribute (if you don't know, no)
+!! Line 5 defines the argument attribute (if you don't know, leave blank)
 
-::::::::::::::::: NOTES :::::::::::::::::
-:: <-- Comment using at least two colons
-:: Data is everything after the first four lines that is not a comment
-:: Don't use a colon in your values.
-:: You can remove everything from GUIDE TO THE FIRST FIVE LINES to DATA (inclusive) in this file once you are done.
-:: Only the first field, in this case, the planet names, will be searched.
-:: Cannot put ' in data
+!!!!!!!!!!!!!!!!! NOTES !!!!!!!!!!!!!!!!!
+!! <-- Comment using at least two colons
+!! Data is everything after the first four lines that is not a comment
+!! Don't use a colon in your values.
+!! You can remove everything from GUIDE TO THE FIRST FIVE LINES to DATA (inclusive) in this file once you are done.
+!! Only the first field, in this case, the planet names, will be searched.
+!! Cannot put ' in data
 
-::::::::::::::::: DATA ::::::::::::::::::
-Sun:1.9891 × 10^30 kilograms:N/A						
-Mercury:0.330 x 10^24 kilograms:1
-Venus:4.87 x 10^24:2
-Earth:5.97 x 10^24 kilograms:3 							
-Moon:0.073 x 10^24 kilograms:3 (combined with Earth)
-Mars:0.642 x 10^24 kilograms:4
-Jupiter:1898 x 10^24 kilograms:5
-Saturn:568 x 10^24 kilograms:6
-Uranus:86.8 x 10^24 kilograms:7
-Neptune:102 x 10^24 kilograms:8
-Pluto:0.0131 x 10^24 kilograms:9 						
-:::::::::::::::::: END ::::::::::::::::::
+!!!!!!!!!!!!!!!!! DATA !!!!!!!!!!!!!!!!!!
+Sun!1.9891 × 10^30 kilograms!N/A						
+Mercury!0.330 x 10^24 kilograms!1
+Venus!4.87 x 10^24!2
+Earth!5.97 x 10^24 kilograms!3 							
+Moon!0.073 x 10^24 kilograms!3 (combined with Earth)
+Mars!0.642 x 10^24 kilograms!4
+Jupiter!1898 x 10^24 kilograms!5
+Saturn!568 x 10^24 kilograms!6
+Uranus!86.8 x 10^24 kilograms!7
+Neptune!102 x 10^24 kilograms!8
+Pluto!0.0131 x 10^24 kilograms!9 						
+!!!!!!!!!!!!!!!!!! END !!!!!!!!!!!!!!!!!!
