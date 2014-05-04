@@ -7,15 +7,15 @@ Framework for Alfred written in Bash which makes it simple to create workflows t
 
 <ol>
 
-<li> As with all Alfred Workflows, the user begins by typing in workflow's keyword, in this case, "arf"
+<li> As with all Alfred Workflows, the user begins by typing in workflow's keyword, in this case, "arf"<br>
 <img src="http://www.danieljchen.com/images/project/arf/keyword.png">
 
-<li>The user then types in his/her query, and results are displayed. Again, part of the standard Alfred Workflow.
+<li>The user then types in his/her query, and results are displayed. Again, part of the standard Alfred Workflow.<br>
 <img src="http://www.danieljchen.com/images/project/arf/search.png"><br>
 
 Normally at this point, the user will select a result and something <b>outside of Alfred</b> will occur, whether that's bring up a webpage, open/do something in a third-party application, etc. The limitations of the Alfred interface mean that once results for a query are displayed, selection of the results means Alfred is done.<p>
 
-<li>With the Alfred Reference Framework, however, this is not the case. Selection of one of the search results generates a special query which then displays results <b>without having to leave Alfred</b>
+<li>With the Alfred Reference Framework, however, this is not the case. Selection of one of the search results generates a special query which then displays results <b>without having to leave Alfred</b><br>
 
 <img src="http://www.danieljchen.com/images/project/arf/display.png">
 
