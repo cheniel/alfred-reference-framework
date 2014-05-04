@@ -4,7 +4,7 @@
 #
 # Modified by __________ for the _________ Alfred Workflow
 #
-# Description: Used to create the temporary .arf file from dynamic data
+# Description: Used to create results from dynamic data
 # 
 # Part of ARF+, which generate dynamic data to be displayed in Alfred 2.
 #
@@ -23,6 +23,7 @@ bundleID=`getBundleId`
 dataDirectory="$VPREFS$bundleID/"
 data="$dataDirectory/dynamic.arf"
 
+##### PROBABLY WILL REMOVE (generating temp .arf is unnecessary overhead)
 # Check and creation of volatile data folder
 if [ ! -d "$dataDirectory" ]; then
 	mkdir "$dataDirectory"
@@ -34,11 +35,17 @@ if [ -f "$data" ]; then
 fi
 
 touch "$data" # create new
+#####
+
+##### DON'T DELETE THIS
+# check user input for escapeString
+# if it contains it, defer responsibilities to display.sh
+# maybe do this in main?
 
 ###############################################################################
 #                           MODIFY BELOW THIS LINE                            #
 ###############################################################################
-# Set preferences (first five lines of .arf)
+# Set preferences (analogousfirst five lines of .arf)
 
 # SET UP FIELD NAMES
 # Always begin with setting up field names. All field names must have an
@@ -50,7 +57,7 @@ setFieldNames "Name" "Birthday" "Gender"
 # These four are optional. Go ahead and delete their calls if you don't want 
 # to use them. They were defined to their default values when setFieldNames 
 # was called
-				# default: "field1.png" "field2.png" ... "fieldn.png"
+				# default: "icon.png" "icon.png" ... "icon.png"
 				# default sets all to no
 				# default sets all to no
 				# default leaves blank

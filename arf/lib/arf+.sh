@@ -2,7 +2,7 @@
 # arf+.sh
 # Part of the Alfred Reference Framework
 #
-# Library for dynamic.sh used to create the temporary .arf file 
+# Library for dynamic.sh used to create results
 # Part of ARF+, which generate dynamic data to be displayed in Alfred 2.
 # 
 
@@ -18,6 +18,38 @@ setFieldNames() {
 	if [ $# -gt 0 ]; then
 
 		numberOfFields=$#
+
+		# set field names
+		i=0
+		for name in "$@"
+		do
+			names[i]="$name"
+			let "i=i+1"
+		done
+
+		# set default icons
+		i=0
+		while [ $i -lt $numberOfFields ]; do
+			icons[i]="icon.png"
+		done
+
+		# set default validity
+		i=0
+		while [ $i -lt $numberOfFields ]; do
+			valid[i]="no"
+		done
+
+		# set default autocomplete attribute
+		i=0
+		while [ $i -lt $numberOfFields ]; do
+			autocomplete[i]="no"
+		done
+
+		# set default argument attribute
+		i=0
+		while [ $i -lt $numberOfFields ]; do
+			argument[i]=""
+		done
 
 	else
 		addResult "" "ARF+ Error" "setFieldNames() received no arguments" "error.png" "no" ""
@@ -80,9 +112,10 @@ establishPreferences() {
 }
 
 # Cleans up strings for compatibility with Alfred XML
-# Remove :, < >, '
+# Remove !, < >, '
+# Find out what other characters need to be removed.
 tidy() {
-
+	echo `echo $1 | sed "s/[!<>']//"`
 }
 
 

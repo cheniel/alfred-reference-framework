@@ -4,7 +4,7 @@
 . arf/lib/workflowHandler.sh # import workflow handler
 . arf/scripts/display.sh
 
-escapeString="-_arf_-"
+escapeString="-_arf_-" # if changed, needs to be changed in dynamic.sh as well if dynamic features are enabled.
 MAX_RESULTS=20
 
 # check to see if the response file exists
