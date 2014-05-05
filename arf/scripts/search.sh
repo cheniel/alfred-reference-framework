@@ -4,8 +4,9 @@
 . arf/lib/workflowHandler.sh # import workflow handler
 . arf/scripts/display.sh
 
-escapeString="-_arf_-" # if changed, needs to be changed in dynamic.sh as well if dynamic features are enabled.
+escapeString="-_arf_-" # if changed, needs to be changed in arf+.sh as well if dynamic features are enabled.
 MAX_RESULTS=20
+DELIMITER='!'
 
 # check to see if the response file exists
 if [ ! -f "$1" ]; then
@@ -26,7 +27,7 @@ if [[ $2 != *$escapeString* ]]; then
 		if [ $lineNumber -gt 4 ]; then
 
 			# get the name of the line
-			value=`echo $line | cut -d '!' -f1`
+			value=`echo $line | cut -d $DELIMITER -f1`
 
 			# convert to lowercase
 			valueSearch=`echo "$value" | tr '[:upper:]' '[:lower:]'`
@@ -47,7 +48,7 @@ if [[ $2 != *$escapeString* ]]; then
 				fi
 
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Get details" "$iconString" "no" "$escapeString$line!-_rsp_-$2"
+				addResult "$line" "$value" "Get details" "$iconString" "no" "$escapeString$line$DELIMITER-_rsp_-$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"
