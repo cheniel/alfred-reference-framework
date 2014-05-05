@@ -69,11 +69,13 @@ establishPreferences "$data"
 
 # ADD DATA
 # Do this however you like. Here are some examples.
+# Always make first argument the user's input.
 
-# EX. 1: Just add a single lines
-addData "Calvin" "November 18, 1985" "Male"
-addData "Bill" "July 5, 1958" "Male"
-addData "Hobbes" "November 18, 1985" "Male"
+# EX. 1: Just add a single lines if the user inputs...
+
+addData "$userInput" "Calvin" "November 18, 1985" "Male"
+addData "$userInput" "Bill" "July 5, 1958" "Male"
+addData "$userInput" "Hobbes" "November 18, 1985" "Male"
 
 # EX. 2: Retrieve information from elsewhere and parse it
 # This example pulls information about the files on your desktop 
@@ -105,6 +107,8 @@ addData "Hobbes" "November 18, 1985" "Male"
 ###############################################################################
 #                           MODIFY ABOVE THIS LINE                            #
 ###############################################################################
-# Call search using dynamic.arf
-echo `./arf/scripts/search.sh "$data" "$userInput"`
+# Call search using dynamic.arf. removed because of design change
+# echo `./arf/scripts/search.sh "$data" "$userInput"`
+
+
 

@@ -13,6 +13,7 @@ escapeString="-_arf_-"
 numberOfFields=0
 # currentLine=1
 
+# first arg should be the users search query
 # Add data
 addData() {
 
@@ -21,6 +22,9 @@ addData() {
 
 		# Check that the user provided the right number of arguments
 		if [ $numberOfFields -eq $# ]; then
+
+			# create line
+
 
 			# get icon
 			if [ -f "arf/img/f1/$value.png" ]; then
@@ -68,24 +72,28 @@ setFieldNames() {
 		i=0
 		while [ $i -lt $numberOfFields ]; do
 			icons[i]="icon.png"
+			let "i=i+1"
 		done
 
 		# set default validity
 		i=0
 		while [ $i -lt $numberOfFields ]; do
 			valid[i]="no"
+			let "i=i+1"
 		done
 
 		# set default autocomplete attribute
 		i=0
 		while [ $i -lt $numberOfFields ]; do
 			autocomplete[i]="no"
+			let "i=i+1"
 		done
 
 		# set default argument attribute
 		i=0
 		while [ $i -lt $numberOfFields ]; do
 			argument[i]=""
+			let "i=i+1"
 		done
 
 	else
@@ -110,6 +118,7 @@ setIcons() {
 				icons[i]="${!i}" # set the icon based on parameter
 			fi
 
+		let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error" "setIcons() called before setFieldNames()" "error.png" "no" ""	
@@ -133,6 +142,7 @@ setValidity() {
 				valid[i]="${!i}" # set the icon based on parameter
 			fi
 
+		let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error" "setValidity() called before setFieldNames()" "error.png" "no" ""	
@@ -156,7 +166,8 @@ setAutocomplete() {
 			else
 				autocomplete[i]="${!i}" # set the icon based on parameter
 			fi
-
+		
+		let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error" "setAutocomplete() called before setFieldNames()" "error.png" "no" ""	
@@ -181,6 +192,7 @@ setArguments() {
 				argument[i]="${!i}" # set the icon based on parameter
 			fi
 
+		let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error" "setArguments() called before setFieldNames()" "error.png" "no" ""	
