@@ -21,10 +21,9 @@ defaultARF="$1"
 userInput="$2"
 bundleID=`getBundleId`
 dataDirectory="$VPREFS$bundleID/"
-data="$dataDirectory/dynamic.arf"
+data="$dataDirectory/preferences.arf"
 
-##### PROBABLY WILL REMOVE (generating temp .arf is unnecessary overhead)
-# Check and creation of volatile data folder
+# Check and creation of volatile data folder for preferences
 if [ ! -d "$dataDirectory" ]; then
 	mkdir "$dataDirectory"
 fi
@@ -35,12 +34,6 @@ if [ -f "$data" ]; then
 fi
 
 touch "$data" # create new
-#####
-
-##### DON'T DELETE THIS
-# check user input for escapeString
-# if it contains it, defer responsibilities to display.sh
-# maybe do this in main?
 
 ###############################################################################
 #                           MODIFY BELOW THIS LINE                            #

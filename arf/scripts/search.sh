@@ -2,20 +2,14 @@
 # using users input, finds the matching results
 
 . arf/lib/workflowHandler.sh # import workflow handler
-. arf/scripts/display.sh
+. arf/lib/common.sh
 
-escapeString="-_arf_-" # if changed, needs to be changed in arf+.sh as well if dynamic features are enabled.
 MAX_RESULTS=20
-DELIMITER='!'
 
 # check to see if the response file exists
 if [ ! -f "$1" ]; then
-	addResult "" "The response file, $2 does not exist." "Make sure the response file is valid" "icon.png" "no" ""
-fi
-	
-# if the first part does not contain the escape string
-if [[ $2 != *$escapeString* ]]; then
-
+	addResult "" "The response file, $1 does not exist." "Make sure the response file is valid" "icon.png" "no" ""
+else
 	query=`echo $2 | tr '[:upper:]' '[:lower:]'`
 	queriesFound=0
 
@@ -24,7 +18,7 @@ if [[ $2 != *$escapeString* ]]; then
 	# loop through the lines of the response file
 	while read -r line; do
 
-		if [ $lineNumber -gt 4 ]; then
+		if [ $lineNumber -gt 5 ]; then
 
 			# get the name of the line
 			value=`echo $line | cut -d $DELIMITER -f1`
@@ -48,7 +42,7 @@ if [[ $2 != *$escapeString* ]]; then
 				fi
 
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Get details" "$iconString" "no" "$escapeString$line$DELIMITER-_rsp_-$2"
+				addResult "$line" "$value" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$DELIMITER$RESPONSE_STRING$2"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"
@@ -68,11 +62,8 @@ if [[ $2 != *$escapeString* ]]; then
 	if [ $queriesFound -eq 0 ]; then
 		addResult "" "No results were found for $query" "Check reference file for item" "icon.png" "no" ""
 	fi
-
-else # the escape string was found
-	displayData "$2" "$1" $escapeString
 fi
-
+	
 getXMLResults # return XML to alfred
 
 

@@ -7,20 +7,21 @@
 # 
 
 . arf/lib/workflowHandler.sh	# Handles XML
-escapeString="-_arf_-" 
-
+. arf/lib/common.sh
 
 numberOfFields=0
 numberOfResults=0
-
-# currentLine=1
 
 # first arg should be the users search query
 # Add data
 addData() {
 
 	# create line. placed before checks for error messages
-	line=`echo "put line here"`
+	line=""
+	for i in ${@:2}
+	do
+	    line="$line$DELIMITER$i"
+	done
 
 	# Check that setFieldNames has been called
 	if [ $numberOfFields -gt 0 ]; then
@@ -44,7 +45,7 @@ addData() {
 			fi
 
 			# add result to alfred, argument should be the entire line
-			addResult "$line" "$2" "Get details" "$iconString" "no" "$escapeString$line!-_rsp_-$2"
+			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$DELIMITER$RESPONSE_STRING$2"
 
 		else
 			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line"	
