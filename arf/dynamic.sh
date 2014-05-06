@@ -65,7 +65,7 @@ setFieldNames "Name" "Birthday" "Gender"
 # SOLIDIFY PREFERENCES
 # Don't mess with this. Just call it once you've set your preferences
 # and before you begin to add data.
-establishPreferences "$data"
+# establishPreferences "$data"
 
 # ADD DATA
 # Do this however you like. Here are some examples.
@@ -109,6 +109,6 @@ addData "$userInput" "Hobbes" "November 18, 1985" "Male"
 ###############################################################################
 # Call search using dynamic.arf. removed because of design change
 # echo `./arf/scripts/search.sh "$data" "$userInput"`
-
+getXMLResults
 
 

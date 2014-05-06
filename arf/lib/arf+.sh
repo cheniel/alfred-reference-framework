@@ -11,20 +11,24 @@ escapeString="-_arf_-"
 
 
 numberOfFields=0
+numberOfResults=0
+
 # currentLine=1
 
 # first arg should be the users search query
 # Add data
 addData() {
 
+	# create line. placed before checks for error messages
+	line=`echo "put line here"`
+
 	# Check that setFieldNames has been called
 	if [ $numberOfFields -gt 0 ]; then
 
+		correctNargs=$(($numberOfFields+1))
+
 		# Check that the user provided the right number of arguments
-		if [ $numberOfFields -eq $# ]; then
-
-			# create line
-
+		if [ $correctNargs -eq $# ]; then
 
 			# get icon
 			if [ -f "arf/img/f1/$value.png" ]; then
@@ -40,14 +44,14 @@ addData() {
 			fi
 
 			# add result to alfred, argument should be the entire line
-			addResult "$line" "$1" "Get details" "$iconString" "no" "$escapeString$line!-_rsp_-$2"
+			addResult "$line" "$2" "Get details" "$iconString" "no" "$escapeString$line!-_rsp_-$2"
 
 		else
-			addResult "" "ARF+ Error" "Wrong number of parameters provided to addData ($numberOfFields vs $#)" "error.png" "no" ""	
+			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line"	
 		fi
 
 	else
-		addResult "" "ARF+ Error" "addData() called before setFieldNames()" "error.png" "no" ""	
+		addResult "" "ARF+ Error. Enter for details." "addData() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
 	fi
 
 }
@@ -97,7 +101,7 @@ setFieldNames() {
 		done
 
 	else
-		addResult "" "ARF+ Error" "setFieldNames() received no arguments" "error.png" "no" ""
+		addResult "" "ARF+ Error. Enter for details." "setFieldNames() received no arguments" "arf/img/sys/error.png" "no" ""
 	fi
 }
 
@@ -113,7 +117,7 @@ setIcons() {
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
-				addResult "" "ARF+ Error" "Not enough parameters given to setIcons() (need $numberOfFields)" "error.png" "no" ""	
+				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setIcons() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
 				icons[i]="${!i}" # set the icon based on parameter
 			fi
@@ -121,7 +125,7 @@ setIcons() {
 		let "i=i+1"
 		done
 	else
-		addResult "" "ARF+ Error" "setIcons() called before setFieldNames()" "error.png" "no" ""	
+		addResult "" "ARF+ Error. Enter for details." "setIcons() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
 	fi
 }
 
@@ -137,7 +141,7 @@ setValidity() {
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
-				addResult "" "ARF+ Error" "Not enough parameters given to setValidity() (need $numberOfFields)" "error.png" "no" ""	
+				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setValidity() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
 				valid[i]="${!i}" # set the icon based on parameter
 			fi
@@ -145,7 +149,7 @@ setValidity() {
 		let "i=i+1"
 		done
 	else
-		addResult "" "ARF+ Error" "setValidity() called before setFieldNames()" "error.png" "no" ""	
+		addResult "" "ARF+ Error. Enter for details." "setValidity() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
 	fi
 
 }
@@ -162,7 +166,7 @@ setAutocomplete() {
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
-				addResult "" "ARF+ Error" "Not enough parameters given to setAutocomplete() (need $numberOfFields)" "error.png" "no" ""	
+				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setAutocomplete() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
 				autocomplete[i]="${!i}" # set the icon based on parameter
 			fi
@@ -170,7 +174,7 @@ setAutocomplete() {
 		let "i=i+1"
 		done
 	else
-		addResult "" "ARF+ Error" "setAutocomplete() called before setFieldNames()" "error.png" "no" ""	
+		addResult "" "ARF+ Error. Enter for details." "setAutocomplete() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
 	fi
 
 }
@@ -187,7 +191,7 @@ setArguments() {
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
-				addResult "" "ARF+ Error" "Not enough parameters given to setArguments() (need $numberOfFields)" "error.png" "no" ""	
+				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setArguments() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
 				argument[i]="${!i}" # set the icon based on parameter
 			fi
@@ -195,7 +199,7 @@ setArguments() {
 		let "i=i+1"
 		done
 	else
-		addResult "" "ARF+ Error" "setArguments() called before setFieldNames()" "error.png" "no" ""	
+		addResult "" "ARF+ Error. Enter for details." "setArguments() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
 	fi
 
 }
@@ -229,6 +233,12 @@ setArguments() {
 
 #	let "currentLine=currentLine+1"	
 #}
+
+printNoResult() {
+	if [ $numberOfResults == 0 ]; then
+		addResult "" "No results were found" "Check reference file for item" "arf/img/sys/arf/img/sys/error.png" "no" ""
+	fi
+}
 
 # Cleans up strings for compatibility with Alfred XML
 # Remove < >, '
