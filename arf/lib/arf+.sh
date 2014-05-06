@@ -6,8 +6,7 @@
 # Part of ARF+, which generate dynamic data to be displayed in Alfred 2.
 # 
 
-. arf/lib/workflowHandler.sh	# Handles XML
-. arf/lib/common.sh
+ . arf/lib/common.sh
 
 numberOfFields=0
 numberOfResults=0
@@ -18,9 +17,9 @@ addData() {
 
 	# create line. placed before checks for error messages
 	line=""
-	for i in ${@:2}
+	for i in "${@:2}"
 	do
-	    line="$line$DELIMITER$i"
+	    line="$line$i$DELIMITER"
 	done
 
 	# Check that setFieldNames has been called
@@ -45,7 +44,7 @@ addData() {
 			fi
 
 			# add result to alfred, argument should be the entire line
-			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$DELIMITER$RESPONSE_STRING$2"
+			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$RESPONSE_STRING$2"
 
 		else
 			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line"	

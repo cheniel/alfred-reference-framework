@@ -1,7 +1,6 @@
 #!/bin/bash
 # using users input, finds the matching results
 
-. arf/lib/workflowHandler.sh # import workflow handler
 . arf/lib/common.sh
 
 MAX_RESULTS=20

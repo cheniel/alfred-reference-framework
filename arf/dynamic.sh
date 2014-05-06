@@ -14,7 +14,6 @@
 
 # Libaries
 . arf/lib/arf+.sh				# ARF+ Libary
-. arf/lib/workflowHandler.sh	# Handles XML
 
 # Arguments
 defaultARF="$1"

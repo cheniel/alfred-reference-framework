@@ -4,9 +4,7 @@
 # arguments:
 # 	[line to parse] [data file] 
 
-. arf/lib/workflowHandler.sh
 . arf/lib/common.sh
-. arf/lib/arf+.sh
 
 displayData() {
 
@@ -16,47 +14,37 @@ displayData() {
 	numberOfFields=`grep -o $DELIMITER <<< \`echo "$1" | sed "s/${RESPONSE_STRING}.*//"\` | wc -l`
 
 	# save the names of the fields into an array
-	if [ ${#names[@]} -eq 0 ]; then # check to see if arf+ has already made it
-		# get the first line
-		nameLine=`sed '1q;d' $2`
-		for i in $(seq 1 $numberOfFields); do 
-			names[$i]=`echo $nameLine | cut -d $DELIMITER -f$i`
-		done	
-	fi
+	# get the first line
+	nameLine=`sed '1q;d' $2`
+	for i in $(seq 1 $numberOfFields); do 
+		names[$i]=`echo $nameLine | cut -d $DELIMITER -f$i`
+	done	
 
-	if [ ${#icons[@]} -eq 0 ]; then
-		# get the second line
-		iconsLine=`sed '2q;d' $2`
+	# get the second line
+	iconsLine=`sed '2q;d' $2`
 
-		# save the images to use for each field into an array
-		for i in $(seq 1 $numberOfFields); do 
-			icons[$i]=`echo $iconsLine | cut -d $DELIMITER -f$i`
-		done
-	fi
+	# save the images to use for each field into an array
+	for i in $(seq 1 $numberOfFields); do 
+		icons[$i]=`echo $iconsLine | cut -d $DELIMITER -f$i`
+	done
 
-	if [ ${#valid[@]} -eq 0 ]; then
-		# get the third line
-		validLine=`sed '3q;d' $2`
-		for i in $(seq 1 $numberOfFields); do 
-			valid[$i]=`echo $validLine | cut -d $DELIMITER -f$i`
-		done
-	fi
+	# get the third line
+	validLine=`sed '3q;d' $2`
+	for i in $(seq 1 $numberOfFields); do 
+		valid[$i]=`echo $validLine | cut -d $DELIMITER -f$i`
+	done
 
-	if [ ${#autocomplete[@]} -eq 0 ]; then
-		# get the fourth line
-		autocompleteLine=`sed '4q;d' $2`
-		for i in $(seq 1 $numberOfFields); do 
-			autocomplete[$i]=`echo $autocompleteLine | cut -d $DELIMITER -f$i`
-		done
-	fi
+	# get the fourth line
+	autocompleteLine=`sed '4q;d' $2`
+	for i in $(seq 1 $numberOfFields); do 
+		autocomplete[$i]=`echo $autocompleteLine | cut -d $DELIMITER -f$i`
+	done
 
-	if [ ${#argument[@]} -eq 0 ]; then
-		# get the fifth line
-		argumentLine=`sed '5q;d' $2`
-		for i in $(seq 1 $numberOfFields); do 
-			argument[$i]=`echo $argumentLine | cut -d $DELIMITER -f$i`
-		done
-	fi
+	# get the fifth line
+	argumentLine=`sed '5q;d' $2`
+	for i in $(seq 1 $numberOfFields); do 
+		argument[$i]=`echo $argumentLine | cut -d $DELIMITER -f$i`
+	done
 
 	# add results
 	for i in $(seq 1 $numberOfFields); do 

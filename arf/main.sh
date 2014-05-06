@@ -8,7 +8,6 @@
 # import display function
 . arf/scripts/display.sh
 . arf/lib/common.sh
-. arf/lib/workflowHandler.sh
 
 # check for escape string to display data
 if [[ $2 == *$ESCAPE_STRING* ]]; then
