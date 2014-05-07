@@ -41,7 +41,7 @@ else
 				fi
 
 				# add result to alfred, argument should be the entire line
-				addResult "$line" "$value" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$DELIMITER$RESPONSE_STRING$2"
+				addResult "$line" "$value" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$DELIMITER$RESPONSE_STRING$2$PREF_STRING$1"
 
 				# increment the number of results found
 				let "queriesFound=queriesFound+1"

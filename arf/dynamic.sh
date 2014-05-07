@@ -18,18 +18,16 @@
 # Arguments
 defaultARF="$1"
 userInput="$2"
-bundleID=`getBundleId`
-dataDirectory="$VPREFS$bundleID/"
-data="$dataDirectory/preferences.arf"
+pref="$DATA_DIRECTORY/preferences.arf"
 
 # Check and creation of volatile data folder for preferences
-if [ ! -d "$dataDirectory" ]; then
-	mkdir "$dataDirectory"
+if [ ! -d "$DATA_DIRECTORY" ]; then
+	mkdir "$DATA_DIRECTORY"
 fi
 
-# Check and reset of dynamic.arf
-if [ -f "$data" ]; then
-	rm -f "$data" # deletion of old
+# Check and reset of preferences.arf
+if [ -f "$pref" ]; then
+	rm -f "$pref" # deletion of old
 fi
 
 touch "$data" # create new

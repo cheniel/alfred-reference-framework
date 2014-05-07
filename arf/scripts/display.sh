@@ -75,7 +75,7 @@ displayData() {
 		addResult "${argument[$i]}" "$dataString" "${names[$i]}" "$iconString" "${valid[$i]}" "$autocompleteString"
 	done
 
-	addResult "" "Go back" "" "arf/img/sys/back.png" "no" "`echo $data | sed "s/.*${RESPONSE_STRING}//"`"
+	addResult "" "Go back" "" "arf/img/sys/back.png" "no" "`echo $data | sed "s/.*${RESPONSE_STRING}//" | sed "s/${PREF_STRING}.*//"`"
 }
 
 

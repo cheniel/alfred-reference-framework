@@ -4,7 +4,11 @@
 
 . arf/lib/workflowHandler.sh
 
-ESCAPE_STRING="-_arf_-" # if you change this, make sure you know where the rest are.
+ESCAPE_STRING="-_arf_-" 
 RESPONSE_STRING="-_rsp_-"
+PREF_STRING="-_prf_-"
 DELIMITER='!'
 
+# generated from workflowHandler.sh
+BUNDLE_ID=`getBundleId`
+DATA_DIRECTORY="$VPREFS$bundleID/"

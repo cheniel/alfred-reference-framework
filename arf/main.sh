@@ -4,6 +4,7 @@
 #
 # Calls the correct shell script given alfred input.
 #
+# [.arf file] [query] [static option]
 
 # import display function
 . arf/scripts/display.sh
@@ -11,7 +12,11 @@
 
 # check for escape string to display data
 if [[ $2 == *$ESCAPE_STRING* ]]; then
-	displayData "$2" "$1"
+
+	# parse out preferences file
+	pref=`echo "$2" | sed "s/.*${PREF_STRING}//"`
+
+	displayData "$2" "$pref"
 	getXMLResults
 
 # run on dynamic mode
