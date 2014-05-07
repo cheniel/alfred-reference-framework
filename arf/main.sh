@@ -14,9 +14,10 @@
 if [[ $2 == *$ESCAPE_STRING* ]]; then
 
 	# parse out preferences file
-	pref=`echo "$2" | sed "s/.*${PREF_STRING}//"`
+	preferenceFile=`echo "$2" | sed "s/.*${PREF_STRING}//"`
 
-	displayData "$2" "$pref"
+	displayData "$2" "$preferenceFile"
+
 	getXMLResults
 
 # run on dynamic mode

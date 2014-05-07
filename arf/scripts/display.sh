@@ -15,13 +15,13 @@ displayData() {
 
 	# save the names of the fields into an array
 	# get the first line
-	nameLine=`sed '1q;d' $2`
+	nameLine=`sed '1q;d' "$2"`
 	for i in $(seq 1 $numberOfFields); do 
 		names[$i]=`echo $nameLine | cut -d $DELIMITER -f$i`
 	done	
 
 	# get the second line
-	iconsLine=`sed '2q;d' $2`
+	iconsLine=`sed '2q;d' "$2"`
 
 	# save the images to use for each field into an array
 	for i in $(seq 1 $numberOfFields); do 
@@ -29,19 +29,19 @@ displayData() {
 	done
 
 	# get the third line
-	validLine=`sed '3q;d' $2`
+	validLine=`sed '3q;d' "$2"`
 	for i in $(seq 1 $numberOfFields); do 
 		valid[$i]=`echo $validLine | cut -d $DELIMITER -f$i`
 	done
 
 	# get the fourth line
-	autocompleteLine=`sed '4q;d' $2`
+	autocompleteLine=`sed '4q;d' "$2"`
 	for i in $(seq 1 $numberOfFields); do 
 		autocomplete[$i]=`echo $autocompleteLine | cut -d $DELIMITER -f$i`
 	done
 
 	# get the fifth line
-	argumentLine=`sed '5q;d' $2`
+	argumentLine=`sed '5q;d' "$2"`
 	for i in $(seq 1 $numberOfFields); do 
 		argument[$i]=`echo $argumentLine | cut -d $DELIMITER -f$i`
 	done

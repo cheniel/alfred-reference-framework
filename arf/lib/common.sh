@@ -11,4 +11,4 @@ DELIMITER='!'
 
 # generated from workflowHandler.sh
 BUNDLE_ID=`getBundleId`
-DATA_DIRECTORY="$VPREFS$bundleID/"
+DATA_DIRECTORY="$VPREFS$BUNDLE_ID/"

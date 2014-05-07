@@ -11,6 +11,31 @@
 numberOfFields=0
 numberOfResults=0
 
+prefFilename="preferences.arf"
+pref="$DATA_DIRECTORY$prefFilename"
+
+# Check and creation of volatile data folder for preferences
+if [ ! -d "$DATA_DIRECTORY" ]; then
+	mkdir "$DATA_DIRECTORY"
+fi
+
+# Check and reset of preferences.arf
+if [ -f "$pref" ]; then
+	rm -f "$pref" # deletion of old
+fi
+
+touch "$pref" # create new
+
+declare -a names
+declare -a icons
+declare -a valid
+declare -a autocomplete
+declare -a argument
+
+###############################################################################
+#                                FUNCTIONS                                    #                            
+###############################################################################
+
 # first arg should be the users search query
 # Add data
 addData() {
@@ -44,7 +69,7 @@ addData() {
 			fi
 
 			# add result to alfred, argument should be the entire line
-			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$RESPONSE_STRING$2"
+			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$RESPONSE_STRING$2$PREF_STRING$pref"
 
 		else
 			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line"	
@@ -68,35 +93,35 @@ setFieldNames() {
 		i=0
 		for name in "$@"
 		do
-			names[i]="$name"
+			names[$i]="$name"
 			let "i=i+1"
 		done
 
 		# set default icons
 		i=0
 		while [ $i -lt $numberOfFields ]; do
-			icons[i]="icon.png"
+			icons[$i]="icon.png"
 			let "i=i+1"
 		done
 
 		# set default validity
 		i=0
 		while [ $i -lt $numberOfFields ]; do
-			valid[i]="no"
+			valid[$i]="no"
 			let "i=i+1"
 		done
 
 		# set default autocomplete attribute
 		i=0
 		while [ $i -lt $numberOfFields ]; do
-			autocomplete[i]="no"
+			autocomplete[$i]="no"
 			let "i=i+1"
 		done
 
 		# set default argument attribute
 		i=0
 		while [ $i -lt $numberOfFields ]; do
-			argument[i]=""
+			argument[$i]=""
 			let "i=i+1"
 		done
 
@@ -204,35 +229,47 @@ setArguments() {
 
 }
 
-
-# Use to finish off preferences
-# Not necessary due to design change
-# establishPreferences() {
+establishPreferences() {
 
 	# add field names
+	i=0
+	while [ $i -lt $numberOfFields ]; do
+		echo -n "${names[$i]}$DELIMITER" >> "$pref"
+		let "i=i+1"
+	done
+	echo >> "$pref"
 
-#	let "currentLine=currentLine+1"
+	# add icons
+	i=0
+	while [ $i -lt $numberOfFields ]; do
+		echo -n "${icons[$i]}$DELIMITER" >> "$pref"
+		let "i=i+1"
+	done
+	echo >> "$pref"
 
+	# add validitys
+	i=0
+	while [ $i -lt $numberOfFields ]; do
+		echo -n "${valid[$i]}$DELIMITER" >> "$pref"
+		let "i=i+1"
+	done
+	echo >> "$pref"
 
-	# add icon names
-
-#	let "currentLine=currentLine+1"	
-
-
-	# add valid attributes
-
-#	let "currentLine=currentLine+1"
-
-
-	# add autcomplete attributes
-
-#	let "currentLine=currentLine+1"	
-
+	# add autocomplete attributes
+	i=0
+	while [ $i -lt $numberOfFields ]; do
+		echo -n "${autocomplete[$i]}$DELIMITER" >> "$pref"
+		let "i=i+1"
+	done
+	echo >> "$pref"
 
 	# add argument attributes
-
-#	let "currentLine=currentLine+1"	
-#}
+	i=0
+	while [ $i -lt $numberOfFields ]; do
+		echo -n "${argument[$i]}$DELIMITER" >> "$pref"
+		let "i=i+1"
+	done
+}
 
 printNoResult() {
 	if [ $numberOfResults == 0 ]; then

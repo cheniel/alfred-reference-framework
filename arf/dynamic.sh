@@ -18,19 +18,6 @@
 # Arguments
 defaultARF="$1"
 userInput="$2"
-pref="$DATA_DIRECTORY/preferences.arf"
-
-# Check and creation of volatile data folder for preferences
-if [ ! -d "$DATA_DIRECTORY" ]; then
-	mkdir "$DATA_DIRECTORY"
-fi
-
-# Check and reset of preferences.arf
-if [ -f "$pref" ]; then
-	rm -f "$pref" # deletion of old
-fi
-
-touch "$data" # create new
 
 ###############################################################################
 #                           MODIFY BELOW THIS LINE                            #
@@ -55,14 +42,16 @@ setFieldNames "Name" "Birthday" "Gender"
 # SOLIDIFY PREFERENCES
 # Don't mess with this. Just call it once you've set your preferences
 # and before you begin to add data.
-# establishPreferences "$data"
+establishPreferences
 
 # ADD DATA
 # Do this however you like. Here are some examples.
+# Base the information you display on the users query, 
+#		when working with ARF+, EVERY CALL to addData WILL APPEAR on the 
+#		Alfred results.
 # Always make first argument the user's input.
 
 # EX. 1: Just add a single lines if the user inputs...
-
 addData "$userInput" "Calvin" "November 18, 1985" "Male"
 addData "$userInput" "Bill" "July 5, 1958" "Male"
 addData "$userInput" "Hobbes" "November 18, 1985" "Male"
