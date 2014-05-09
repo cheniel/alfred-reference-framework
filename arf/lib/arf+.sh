@@ -56,14 +56,14 @@ addData() {
 		if [ $correctNargs -eq $# ]; then
 
 			# get icon
-			if [ -f "arf/img/f1/$value.png" ]; then
-				iconString="arf/img/f1/$value.png" 
-			elif [ -f "arf/img/f1/$value.gif" ]; then
-				iconString="arf/img/f1/$value.gif" 
-			elif [ -f "arf/img/f1/$value.jpeg" ]; then
-				iconString="arf/img/f1/$value.jpeg" 
-			elif [ -f "arf/img/f1/$value.jpg" ]; then
-				iconString="arf/img/f1/$value.jpg" 
+			if [ -f "arf/img/f1/$2.png" ]; then
+				iconString="arf/img/f1/$2.png" 
+			elif [ -f "arf/img/f1/$2.gif" ]; then
+				iconString="arf/img/f1/$2.gif" 
+			elif [ -f "arf/img/f1/$2.jpeg" ]; then
+				iconString="arf/img/f1/$2.jpeg" 
+			elif [ -f "arf/img/f1/$2.jpg" ]; then
+				iconString="arf/img/f1/$2.jpg" 
 			else
 				iconString=${icons[$i]}
 			fi
@@ -138,16 +138,18 @@ setIcons() {
 
 		# Loop through all the fields
 		i=0
+		arg=1
 		while [ $i -lt $numberOfFields ]; do
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
 				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setIcons() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
-				icons[i]="${!i}" # set the icon based on parameter
+				icons[i]="${!arg}" # set the icon based on parameter
 			fi
 
-		let "i=i+1"
+			let "i=i+1"
+			let "arg=arg+1"
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setIcons() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
@@ -171,7 +173,7 @@ setValidity() {
 				valid[i]="${!i}" # set the icon based on parameter
 			fi
 
-		let "i=i+1"
+			let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setValidity() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
@@ -196,7 +198,7 @@ setAutocomplete() {
 				autocomplete[i]="${!i}" # set the icon based on parameter
 			fi
 		
-		let "i=i+1"
+			let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setAutocomplete() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
@@ -221,7 +223,7 @@ setArguments() {
 				argument[i]="${!i}" # set the icon based on parameter
 			fi
 
-		let "i=i+1"
+			let "i=i+1"
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setArguments() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	

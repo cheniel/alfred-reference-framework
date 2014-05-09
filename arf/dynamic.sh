@@ -34,7 +34,9 @@ setFieldNames "Name" "Birthday" "Gender"
 # These four are optional. Go ahead and delete their calls if you don't want 
 # to use them. They were defined to their default values when setFieldNames 
 # was called
-				# default: "icon.png" "icon.png" ... "icon.png"
+
+# default: "icon.png" "icon.png" ... "icon.png"
+setIcons "icon.png" "arf/img/f2/cake.png" "icon.png" 				
 				# default sets all to no
 				# default sets all to no
 				# default leaves blank
@@ -53,8 +55,8 @@ establishPreferences
 
 # EX. 1: Just add a single lines if the user inputs...
 addData "$userInput" "Calvin" "November 18, 1985" "Male"
-addData "$userInput" "Bill" "July 5, 1958" "Male"
 addData "$userInput" "Hobbes" "November 18, 1985" "Male"
+addData "$userInput" "Bill" "July 5, 1958" "Male"
 
 # EX. 2: Retrieve information from elsewhere and parse it
 # This example pulls information about the files on your desktop 
