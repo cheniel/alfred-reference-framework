@@ -54,9 +54,11 @@ establishPreferences
 # Always make first argument the user's input.
 
 # EX. 1: Just add a single lines if the user inputs...
-addData "$userInput" "Calvin" "November 18, 1985" "Male"
-addData "$userInput" "Hobbes" "November 18, 1985" "Male"
-addData "$userInput" "Bill" "July 5, 1958" "Male"
+if [ "$userInput" == "cah" ]; then
+	addData "$userInput" "Calvin" "November 18, 1985" "Male"
+	addData "$userInput" "Hobbes" "November 18, 1985" "Male"
+	addData "$userInput" "Bill" "July 5, 1958" "Male"
+fi
 
 # EX. 2: Retrieve information from elsewhere and parse it
 # This example pulls information about the files on your desktop 

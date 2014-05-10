@@ -164,16 +164,19 @@ setValidity() {
 
 		# Loop through all the fields
 		i=0
+		arg=1
 		while [ $i -lt $numberOfFields ]; do
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
 				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setValidity() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
-				valid[i]="${!i}" # set the icon based on parameter
+				valid[i]="${!arg}" # set the icon based on parameter
 			fi
 
 			let "i=i+1"
+			let "arg=arg+1"
+
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setValidity() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
@@ -189,16 +192,18 @@ setAutocomplete() {
 
 		# Loop through all the fields
 		i=0
+		arg=1
 		while [ $i -lt $numberOfFields ]; do
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
 				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setAutocomplete() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
-				autocomplete[i]="${!i}" # set the icon based on parameter
+				autocomplete[i]="${!arg}" # set the icon based on parameter
 			fi
 		
 			let "i=i+1"
+			let "arg=arg+1"
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setAutocomplete() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
@@ -214,16 +219,18 @@ setArguments() {
 
 		# Loop through all the fields
 		i=0
+		arg=0
 		while [ $i -lt $numberOfFields ]; do
 
 			# check that the argument does not exist
 			if [ $# -eq 0 ]; then
 				addResult "" "ARF+ Error. Enter for details." "Not enough parameters given to setArguments() (need $numberOfFields)" "arf/img/sys/error.png" "no" ""	
 			else
-				argument[i]="${!i}" # set the icon based on parameter
+				argument[i]="${!arg}" # set the icon based on parameter
 			fi
 
 			let "i=i+1"
+			let "arg=arg+1"
 		done
 	else
 		addResult "" "ARF+ Error. Enter for details." "setArguments() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
