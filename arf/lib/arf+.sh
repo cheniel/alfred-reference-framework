@@ -40,7 +40,9 @@ declare -a argument
 ###############################################################################
 
 # first arg should be the users search query
-# Add data
+# Add data to be displayed in Alfred
+# e.g.
+# addData "$userInput" "Calvin" "November 18, 1985" "Male"
 addData() {
 
 	# create line. placed before checks for error messages
@@ -86,6 +88,9 @@ addData() {
 }
 
 # For inputting value names (mandatory)
+# Arguments are FIELD1_TYPE, FIELD2_TYPE, FIELD3_TYPE...
+# e.g.
+# setFieldNames "Name" "Birthday" "Gender"
 setFieldNames() {
 	
 	# requires at least one argument
@@ -134,7 +139,11 @@ setFieldNames() {
 	fi
 }
 
-# For inputting icons
+# For inputting default icons for fields
+# Arguments are FIELD1_ICON, FIELD2_ICON, FIELD3_ICON...
+# Default is icon.png for all fields
+# e.g.
+# setIcons "arf/img/f1/default.png" "arf/img/f2/default.png" "arf/img/f3/default.png" ... 
 setIcons() {
 
 	# Check that setFieldNames has been called
@@ -160,7 +169,11 @@ setIcons() {
 	fi
 }
 
-# For inputting valid attribute
+# For inputting validity for fields
+# Arguments are FIELD1_VALIDITY, FIELD2_VALIDITY, FIELD3_VALIDITY...
+# Default is "no" for all fields
+# e.g.
+# setValidity "no" "yes" "no"
 setValidity() {
 
 	# Check that setFieldNames has been called
@@ -189,6 +202,19 @@ setValidity() {
 }
 
 # For inputting autocomplete attribute
+# When valid is no, Alfred uses the autocomplete attribute to modify the
+# user's query to whatever autocomplete is specified as when the user
+# selects the option.
+#
+# In ARF+, if "no" is used in autocomplete, selecting an item changes the 
+# query to the current query, so nothing happens.
+#
+# Could be used to jump to specific searches from options.
+#
+# Arguments are FIELD1_AUTOCOMPLETE, FIELD2_AUTOCOMPLETE, FIELD3_AUTOCOMPLETE...
+# Default is "no" for all fields
+# e.g.
+# setAutocomplete "no" "yes" "no"
 setAutocomplete() {
 
 	# Check that setFieldNames has been called
@@ -216,6 +242,14 @@ setAutocomplete() {
 }
 
 # For inputting argument attribute
+# The argument is passed to actions.sh if validity for the field is 
+# set to no.
+# 
+# Arguments are FIELD1_ARGUMENT, FIELD2_ARGUMENT, FIELD3_ARGUMENT...
+# Default is "" for all fields
+#
+# e.g.
+# setArguments "" "openHelp" "runScript"
 setArguments() {
 
 	# Check that setFieldNames has been called
@@ -242,6 +276,10 @@ setArguments() {
 
 }
 
+# Creates temporary preferences file out of the user-set fieldnames, icons
+# validity, autocomplete, and arguments for each field.
+#
+# Call once after all preferences have been set
 establishPreferences() {
 
 	# add field names
@@ -284,6 +322,18 @@ establishPreferences() {
 	done
 }
 
+# Allows user to determine the error messages that are displayed is
+# The user's search does not receive any results
+# The first argument is the large text,
+# The second argument is the smaller text.
+#
+#
+# Default:
+#	No results were found
+#	Try another search
+#
+# e.g.
+# setError "We couldn't find any results for that query." "Try again later."
 setError() {
 	if [ $# -ge 2 ]; then
 		err1="$1"
@@ -293,6 +343,7 @@ setError() {
 	fi
 }
 
+# User does not need to call this.
 printNoResult() {
 	if [ $numberOfResults == 0 ]; then
 		addResult "" "$err1" "$err2" "arf/img/sys/error.png" "no" ""
@@ -307,6 +358,7 @@ tidy() {
 	echo `echo $1 | sed "s/[<>']//" | sed "s/!/./"`
 }
 
+# needs to be called exactly once at the end of dynamic.sh
 pushData() {
 	printNoResult
 	getXMLResults

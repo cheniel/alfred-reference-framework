@@ -22,7 +22,7 @@ userInput="$2"
 ###############################################################################
 #                           MODIFY BELOW THIS LINE                            #
 ###############################################################################
-# Set preferences (analogousfirst five lines of .arf)
+# Set preferences (analogous to first five lines of static .arf)
 
 # SET UP FIELD NAMES
 # Always begin with setting up field names. All field names must have an
@@ -35,19 +35,14 @@ setFieldNames "Name" "Birthday" "Gender"
 # to use them. They were defined to their default values when setFieldNames 
 # was called
 
-# default: "icon.png" "icon.png" ... "icon.png"
-setIcons "icon.png" "arf/img/f2/cake.png" "icon.png" 				
-				# default sets all to no
-				# default sets all to no
-				# default leaves blank
+setIcons "icon.png" "arf/img/f2/cake.png" "icon.png" # default: "icon.png" "icon.png" ... "icon.png"
+setValidity "no" "no" "no"				# default sets all to no
+setAutocomplete "no" "no" "no"			# default sets all to no
+setArguments "" "" ""					# default leaves blank
 
-
-
-# SOLIDIFY PREFERENCES
 # Don't remove this. Just call it once you've set your preferences
 # and before you begin to add data.
 establishPreferences
-
 
 
 # ADD DATA
@@ -57,7 +52,7 @@ establishPreferences
 #		Alfred results.
 # Always make first argument the user's input.
 
-# EX. 1: Just add a single lines if the user inputs...
+# EX. 1: Just add a specified lines if the user inputs a certain query
 # try it out by typing "arf cah" in Alfred.
 if [ "$userInput" == "cah" ]; then
 	addData "$userInput" "Calvin" "November 18, 1985" "Male"
@@ -66,10 +61,12 @@ if [ "$userInput" == "cah" ]; then
 fi
 
 
-
 # EX. 2: Retrieve information from elsewhere and parse it
 # This example pulls information about the files on ~/Documents
 # try it out by typing "arf desk" in Alfred.
+
+# You could easily modify this so that the user specifies which folder at 
+# root to look at.
 
 if [ "$userInput" == "doc" ]; then
 

@@ -31,9 +31,8 @@ Creating a basic ARF workflow is as simple as modifying a text file. To create a
 
 Actively under development, currently functional on static mode. v1.0 will be when arf+ is finished. ARF+ is a library that will allow for the dynamic generation of results that can be searched and displayed. This will allow dynamic information to be retrieved from the web and other sources. Please feel free to contribute.
 
-###Future Additions
+###Future Additions / Potential Pull Requests
 <ul>
-<li> Library to dynamically create search results (arf+)
 <li> Ability to specify searchable fields
 <li> Display either recent searches (by saving user input when they select a result) or default searches (similar to in <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a>) before user inputs a query
 <li> Ability to add interactively add data from Alfred interface (static only)
