@@ -68,7 +68,7 @@ addData() {
 			elif [ -f "arf/img/f1/$2.jpg" ]; then
 				iconString="arf/img/f1/$2.jpg" 
 			else
-				iconString=${icons[$i]}
+				iconString=${icons[0]}
 			fi
 
 			# add result to alfred, argument should be the entire line

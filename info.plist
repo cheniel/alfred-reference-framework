@@ -56,7 +56,7 @@
 
 </string>
 				<key>subtext</key>
-				<string>Type name of {planet}, or "all" to retrieve all data.</string>
+				<string>If on static mode, type name of {planet}, or "all" to retrieve all data.</string>
 				<key>title</key>
 				<string>{ARF Application}</string>
 				<key>type</key>

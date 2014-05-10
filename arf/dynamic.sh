@@ -71,8 +71,9 @@ fi
 # This example pulls information about the files on ~/Documents
 # try it out by typing "arf desk" in Alfred.
 
-# Pull the information from the desktop
 if [ "$userInput" == "doc" ]; then
+
+	# Pull the information from the desktop
 	desktopFiles=`ls -l ~/Documents | sed -n '1!p'`
 
 	# For each file (line) in the string
@@ -85,19 +86,23 @@ if [ "$userInput" == "doc" ]; then
 		filedate=`echo $line | cut -d ' ' -f6,7,8`
 
 		# Get the file type
-		filetype=`echo $line | cut -d ' ' -f1 | sed "s/@//"` # removes @
+		filetype=`echo $line | cut -d ' ' -f1 | sed "s/@//" | sed "s/r--//"` # removes @
 
 		# add Data
 		addData "$userInput" "$filename" "$filedate" "$filetype" 
 
+		# break if numberOfResults >= 20.
+		# numberOfResults is an arf+ variable that keeps track of the number
+		# of calls to addData for you.
+		if [ $numberOfResults -ge 20 ]; then
+			break
+		fi
+
 	done <<< "$desktopFiles"
 fi
 
-
-
-
-# other ideas: 
-# 	- curl webpages and parse the data
+# Neither of these examples demonstrate any search compatibility.
+# Use the user input to define what calls to addData you make.
 
 # advice and warnings for adding data:
 # 	- single quotes, "<", ">", and other characters that pose problems with XML
@@ -109,10 +114,10 @@ fi
 #	  reponses per search. That's a good place to cut it adding data to
 #	  reduce runtime.
 
-### OPTIONAL 
+### OPTIONAL CUSTOM ERROR MESSAGE
 # set the error message that is displayed
 # default is "No results were found" "Try another search"
-setError "No results were found" "Try either {arf cah} or {arf doc}"
+setError "No results were found" "Try either {arf cah} or {arf doc} to see standard arf+ examples"
 
 ###############################################################################
 #                           MODIFY ABOVE THIS LINE                            #
