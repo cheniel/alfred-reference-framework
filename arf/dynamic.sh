@@ -86,7 +86,7 @@ if [ "$userInput" == "doc" ]; then
 		filedate=`echo $line | cut -d ' ' -f6,7,8`
 
 		# Get the file type
-		filetype=`echo $line | cut -d ' ' -f1 | sed "s/@//" | sed "s/r--//"` # removes @
+		filetype=`echo $line | cut -d ' ' -f1` # removes @
 
 		# add Data
 		addData "$userInput" "$filename" "$filedate" "$filetype" 
