@@ -75,7 +75,7 @@ addData() {
 			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$RESPONSE_STRING$1$PREF_STRING$pref"
 
 		else
-			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line"	
+			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line. Make sure to put \$userInput as the first arg"	
 		fi
 
 	else

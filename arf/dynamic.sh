@@ -41,10 +41,14 @@ setIcons "icon.png" "arf/img/f2/cake.png" "icon.png"
 				# default sets all to no
 				# default leaves blank
 
+
+
 # SOLIDIFY PREFERENCES
-# Don't mess with this. Just call it once you've set your preferences
+# Don't remove this. Just call it once you've set your preferences
 # and before you begin to add data.
 establishPreferences
+
+
 
 # ADD DATA
 # Do this however you like. Here are some examples.
@@ -61,18 +65,35 @@ if [ "$userInput" == "cah" ]; then
 	addData "$userInput" "Bill" "July 5, 1958" "Male"
 fi
 
+
+
 # EX. 2: Retrieve information from elsewhere and parse it
-# This example pulls information about the files on your desktop 
-# and populates the same list.
+# This example pulls information about the files on ~/Documents
+# try it out by typing "arf desk" in Alfred.
 
 # Pull the information from the desktop
+if [ "$userInput" == "doc" ]; then
+	desktopFiles=`ls -l ~/Documents | sed -n '1!p'`
 
-# For each file
-	# Get the file name
-	# Get the date it was created
-	# Get the file type
+	# For each file (line) in the string
+	while read -r line; do
 
-	# add Data
+		# Get the file name
+		filename=`echo $line | cut -d ' ' -f9,10,11,12,13,14` # assumes < 6 spaces
+
+		# Get the date it was created
+		filedate=`echo $line | cut -d ' ' -f6,7,8`
+
+		# Get the file type
+		filetype=`echo $line | cut -d ' ' -f1 | sed "s/@//"` # removes @
+
+		# add Data
+		addData "$userInput" "$filename" "$filedate" "$filetype" 
+
+	done <<< "$desktopFiles"
+fi
+
+
 
 
 # other ideas: 
@@ -91,7 +112,7 @@ fi
 ### OPTIONAL 
 # set the error message that is displayed
 # default is "No results were found" "Try another search"
-setError "No results were found" "Try either {arf cah} or {arf desk}"
+setError "No results were found" "Try either {arf cah} or {arf doc}"
 
 ###############################################################################
 #                           MODIFY ABOVE THIS LINE                            #
