@@ -54,6 +54,7 @@ establishPreferences
 # Always make first argument the user's input.
 
 # EX. 1: Just add a single lines if the user inputs...
+# try it out by typing "arf cah" in Alfred.
 if [ "$userInput" == "cah" ]; then
 	addData "$userInput" "Calvin" "November 18, 1985" "Male"
 	addData "$userInput" "Hobbes" "November 18, 1985" "Male"
@@ -62,7 +63,7 @@ fi
 
 # EX. 2: Retrieve information from elsewhere and parse it
 # This example pulls information about the files on your desktop 
-# and populates the same list. Hope it's clean!
+# and populates the same list.
 
 # Pull the information from the desktop
 
@@ -87,11 +88,15 @@ fi
 #	  reponses per search. That's a good place to cut it adding data to
 #	  reduce runtime.
 
+### OPTIONAL 
+# set the error message that is displayed
+# default is "No results were found" "Try another search"
+setError "No results were found" "Try either {arf cah} or {arf desk}"
+
 ###############################################################################
 #                           MODIFY ABOVE THIS LINE                            #
 ###############################################################################
 # Call search using dynamic.arf. removed because of design change
 # echo `./arf/scripts/search.sh "$data" "$userInput"`
-getXMLResults
-
+pushData
 

@@ -6,7 +6,7 @@
 # Part of ARF+, which generate dynamic data to be displayed in Alfred 2.
 # 
 
- . arf/lib/common.sh
+. arf/lib/common.sh
 
 numberOfFields=0
 numberOfResults=0
@@ -24,7 +24,10 @@ if [ -f "$pref" ]; then
 	rm -f "$pref" # deletion of old
 fi
 
-touch "$pref" # create new
+touch "$pref" # create new preference file
+
+err1="No results were found"
+err2="Try another search"
 
 declare -a names
 declare -a icons
@@ -69,7 +72,7 @@ addData() {
 			fi
 
 			# add result to alfred, argument should be the entire line
-			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$RESPONSE_STRING$2$PREF_STRING$pref"
+			addResult "$line" "$2" "Get details" "$iconString" "no" "$ESCAPE_STRING$line$RESPONSE_STRING$1$PREF_STRING$pref"
 
 		else
 			addResult "" "ARF+ Error. Enter for details." "Wrong number of parameters provided to addData ($# vs $correctNargs)" "arf/img/sys/error.png" "no" "@args=$line"	
@@ -79,6 +82,7 @@ addData() {
 		addResult "" "ARF+ Error. Enter for details." "addData() called before setFieldNames()" "arf/img/sys/error.png" "no" ""	
 	fi
 
+	let "numberOfResults=numberOfResults+1"
 }
 
 # For inputting value names (mandatory)
@@ -280,9 +284,18 @@ establishPreferences() {
 	done
 }
 
+setError() {
+	if [ $# -ge 2 ]; then
+		err1="$1"
+		err2="$2"
+	else
+		addResult "" "ARF+ Error. Enter for details." "setError() received less than two arguments" "arf/img/sys/error.png" "no" ""
+	fi
+}
+
 printNoResult() {
 	if [ $numberOfResults == 0 ]; then
-		addResult "" "No results were found" "Check reference file for item" "arf/img/sys/arf/img/sys/error.png" "no" ""
+		addResult "" "$err1" "$err2" "arf/img/sys/error.png" "no" ""
 	fi
 }
 
@@ -294,4 +307,8 @@ tidy() {
 	echo `echo $1 | sed "s/[<>']//" | sed "s/!/./"`
 }
 
+pushData() {
+	printNoResult
+	getXMLResults
+}
 
