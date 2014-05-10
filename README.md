@@ -23,6 +23,9 @@ Normally at this point, the user will select a result and something <b>outside o
 
 Another example of a static ARF workflow is the <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a>, which is the code generalized to make ARF. 
 
+## Installation
+
+
 ## Creating an ARF workflow
 
 There are two ways to create an ARF workflow: static and dynamic. 
@@ -54,9 +57,7 @@ Actively under development, currently functional on static mode. v1.0 will be wh
 <li> Ability to specify searchable fields 
 <li> Display either recent searches (by saving user input when they select a result) or default searches (similar to in <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a>) before user inputs a query
 <li> Ability to add interactively add data from Alfred interface (static only)
-<li> LaTeX Guide
 <li> Web form that allows for easy creation of "data.arf" files for static usage.
-<li> Mod to a Flashcard Framework
 </ul>
 
 ## Examples
