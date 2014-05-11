@@ -94,6 +94,8 @@ Actively under development, currently functional on static mode. v1.0 will be wh
 <li> Web form that allows for easy creation of "data.arf" files for static usage.
 </ul>
 
+### Acknowledgements
+
 ## Examples
 <ul>
 <li> <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a>
