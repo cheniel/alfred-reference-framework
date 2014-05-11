@@ -1,4 +1,4 @@
-Alfred Reference Framework
+<img src="https://github.com/cheniel/alfred-reference-framework/raw/master/icon.png" width="100px" height="100px"> Alfred Reference Framework
 ==========================
 
 Framework for Alfred written in Bash which makes it easy to create workflows to search and look up information without leaving the Alfred interface. This gets around the issue caused by the fact that <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">"Script Filters are the only way to pass feedback to Alfred"</a>. 
