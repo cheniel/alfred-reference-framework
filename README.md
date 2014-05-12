@@ -111,11 +111,11 @@ After establishing preferences, you can begin adding data based on the user's qu
 
 After finding that the user's query is "cah", the script adds three results using the arf+ method addData. To use add data, you must call the method with the number of arguments that were passed into setFieldNames plus one. The first argument is always just "$userInput", and the other arguments all correspond to the data in the fields. This code snippet produces an Alfred result as below:
 
-<img src="http://www.danieljchen.com/images/project/arf/cah.png" width="75%"><br>
+<img src="http://www.danieljchen.com/images/project/arf/cah.png" width="60%"><br>
 
 Here is the result of selecting "Calvin":
 
-<img src="http://www.danieljchen.com/images/project/arf/cah-result.png" width="75%"><br>
+<img src="http://www.danieljchen.com/images/project/arf/cah-result.png" width="60%"><br>
 
 Check out <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> for another example.
 
@@ -124,7 +124,7 @@ The very last method call in every <a href="https://github.com/cheniel/alfred-re
 ##### Setting a custom error message
 If the user inputs a query that produces no results, arf+ will automatically display an error message when pushData is called. The default error message looks like this:
 
-<img src="http://www.danieljchen.com/images/project/arf/error.png" width="75%"><br>
+<img src="http://www.danieljchen.com/images/project/arf/error.png" width="60%"><br>
 
 If you want to set a custom error message, use this method:
 > setError "LARGE TEXT" "SUB TEXT"
