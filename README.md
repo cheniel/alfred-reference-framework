@@ -111,23 +111,38 @@ After establishing preferences, you can begin adding data based on the user's qu
 
 After finding that the user's query is "cah", the script adds three results using the arf+ method addData. To use add data, you must call the method with the number of arguments that were passed into setFieldNames plus one. The first argument is always just "$userInput", and the other arguments all correspond to the data in the fields. This code snippet produces an Alfred result as below:
 
+<img src="http://www.danieljchen.com/images/project/arf/cah.png" width="75%"><br>
 
+Here is the result of selecting "Calvin":
+
+<img src="http://www.danieljchen.com/images/project/arf/cah-result.png" width="75%"><br>
 
 Check out <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> for another example.
 
-The very last method call in every <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> should be the ARF+ method pushData.
+The very last method call in every <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> should be the ARF+ method pushData. It doesn't require any methods and just gives the data to Alfred to display.
 
 ##### Setting a custom error message
-If the user inputs a query that produces no results, 
+If the user inputs a query that produces no results, arf+ will automatically display an error message when pushData is called. The default error message looks like this:
 
-### Images
-For adding default images for results
+<img src="http://www.danieljchen.com/images/project/arf/error.png" width="75%"><br>
+
+If you want to set a custom error message, use this method:
+> setError "LARGE TEXT" "SUB TEXT"
+
+To choose what is displayed when no calls to addData are made because of the user's query.
+
+### Result-specific Icons
+The previous guides for static and dynamic modes show how to set a default icon for a specific field. If you want to generate a custom icon for a specific result in a field, you have to add images to arf/img/fN where N is the number of the field that you want to have a custom icon in.
+
+Here is an example of custom icons for 
+
 
 ### Interactivity
+Interactivity can be added in either static or dynamic mode. 
+
 
 
 ## Development
-
 Actively under development, currently functional on static mode. v1.0 will be when arf+ is finished. ARF+ is a library that will allow for the dynamic generation of results that can be searched and displayed. This will allow dynamic information to be retrieved from the web and other sources. Please feel free to contribute.
 
 ###Future Additions / Potential Pull Requests
