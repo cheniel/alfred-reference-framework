@@ -34,6 +34,16 @@ Static is best if you have data which does not change. This mode requires no cod
 
 Dynamic is best if you have data that changes over time (for example, tweets containing a certain hashtag), from computer to computer, or any other variable. It requires using the ARF+ library and you have to create your own method for determining what results to display (as opposed to the simple name-search offered in static mode).
 
+After you've installed ARF and picked which mode you want to use, go to the workflow's entry in the Alfred Preferences and double-click on the script filter module. 
+
+If you've picked static mode, make sure the first line of the script portion of the script module is:
+> ./arf/main.sh arf/data/static.arf {query} --static
+
+If you've picked dynamic mode, make sure the first line of the script portion of the script module is:
+> ./arf/main.sh arf/data/static.arf {query}
+
+Both dynamic and static mode have pre-filled examples for you to take a look at.
+
 ### Static Mode
 To create an ARF workflow in static mode, all that is required is modification of <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/data/static.arf">static.arf</a>, which is a '!' delimited plain text file in the "data" folder containing the data searched and displayed. 
 
@@ -72,8 +82,18 @@ That's pretty much all you need. For more explanation on how to make a ARF workf
 Make sure that you remove all non-data and non-preference lines (including empty lines and comment lines) before production, as it slows down your search.
 
 ### Dynamic Mode
-To create a dynamic ARF workflow, you have to modify the dynamic.sh file using the arf+ library.
+To create a dynamic ARF workflow, you have to modify the <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> file using the arf+ library. The arf+ library contains methods that you call from within <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a>.
 
+The first thing you must do is set the preferences. At the minimum, this takes 2 method calls, but if you want to customize all the preferences it takes 6. Here is what setting preferences looks like:
+> setFieldNames "Name" "Birthday" "Gender"  
+> ...add optional preference methods here...  
+> establishPreferences  
+
+The first and third methods in the snippet are the two required calls. setFieldNames corresponds to filling out the first preference line in the .arf file. It also establishes the number of fields as well as initializing the rest of the lines to default values. establishPreferences uses all of the preference method calls to create a temporary .arf file in the user's volatile data folder. You can make the preferences specific to the user's query, however you should never begin adding data until establishPreferences is called.
+
+About the optional preference methods
+
+Adding data
 
 ### Images
 For adding default images for results
@@ -89,9 +109,9 @@ Actively under development, currently functional on static mode. v1.0 will be wh
 ###Future Additions / Potential Pull Requests
 <ul>
 <li> Ability to specify searchable fields 
+<li> ARF+ method which enables searching static as well as dynamic data in dynamic mode.
 <li> Display either recent searches (by saving user input when they select a result) or default searches (similar to in <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a>) before user inputs a query
 <li> Ability to add interactively add data from Alfred interface (static only)
-<li> Web form that allows for easy creation of "data.arf" files for static usage.
 </ul>
 
 ### Acknowledgements
