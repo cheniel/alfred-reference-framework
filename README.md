@@ -24,7 +24,11 @@ Normally at this point, the user will select a result and something <b>outside o
 Another example of a static ARF workflow is the <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a>, which is the code generalized to make ARF. 
 
 ## Installation
+<a href="https://github.com/cheniel/alfred-reference-framework/releases">Download the latest release</a>, or clone the repository into an empty workflow using these instructions:
 
+<ol>
+<li> Open up the Workflows tab
+</ol>
 
 ## Creating an ARF workflow
 
@@ -154,6 +158,8 @@ Actively under development, currently functional on static mode. v1.0 will be wh
 </ul>
 
 ### Acknowledgements
+<a href="https://github.com/markokaestner/bash-workflow-handler">Bash Workflow Handler</a> by <a href="https://github.com/markokaestner">markokaestner</a> for handling XML.
+
 
 ## Examples
 <ul>
