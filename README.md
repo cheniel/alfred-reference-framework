@@ -84,6 +84,7 @@ Make sure that you remove all non-data and non-preference lines (including empty
 ### Dynamic Mode
 To create a dynamic ARF workflow, you have to modify the <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> file using the arf+ library. The arf+ library contains methods that you call from within <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a>.
 
+##### Setting preferences
 The first thing you must do is set the preferences. At the minimum, this takes 2 method calls, but if you want to customize all the preferences it takes 6. Here is what setting preferences looks like:
 > setFieldNames "Name" "Birthday" "Gender"  
 > ...add optional preference methods here...  
@@ -91,15 +92,38 @@ The first thing you must do is set the preferences. At the minimum, this takes 2
 
 The first and third methods in the snippet are the two required calls. setFieldNames corresponds to filling out the first preference line in the .arf file. It also establishes the number of fields as well as initializing the rest of the lines to default values. establishPreferences uses all of the preference method calls to create a temporary .arf file in the user's volatile data folder. You can make the preferences specific to the user's query, however you should never begin adding data until establishPreferences is called.
 
-About the optional preference methods
+The optional preference methods correspond to the other four preference lines. They must be called after setFieldNames and before establishPreferences. Here are the methods:
+> setIcons "icon.png" "icon.png" "icon.png"   
+> setValidity "no" "no" "no"	
+> setAutocomplete "no" "no" "no"	
+> setArguments "" "" ""	  
 
-Adding data
+Each of these calls should have the same number of arguments as setFieldNames. The specific snippet shown above doesn't actually do anything, as the method calls in the snippet all pass in the default values which have already been set by setFieldNames (e.g. default icons are "icon.png" for all fields, validity is "no", etc.). <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">Read about the attribute types here.</a>
+
+##### Adding data
+After establishing preferences, you can begin adding data based on the user's query. For your convenience, the user's query is stored in a variable. Here is an example from <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> which responds to the user's query "cah".
+
+> if [ "$userInput" == "cah" ]; then  
+>     addData "$userInput" "Calvin" "November 18, 1985" "Male"    
+>     addData "$userInput" "Hobbes" "November 18, 1985" "Male"    
+>     addData "$userInput" "Bill" "July 5, 1958" "Male"     
+> fi  
+
+After finding that the user's query is "cah", the script adds three results using the arf+ method addData. To use add data, you must call the method with the number of arguments that were passed into setFieldNames plus one. The first argument is always just "$userInput", and the other arguments all correspond to the data in the fields. This code snippet produces an Alfred result as below:
+
+
+
+Check out <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> for another example.
+
+The very last method call in every <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/dynamic.sh">dynamic.sh</a> should be the ARF+ method pushData.
+
+##### Setting a custom error message
+If the user inputs a query that produces no results, 
 
 ### Images
 For adding default images for results
 
 ### Interactivity
-
 
 
 ## Development
