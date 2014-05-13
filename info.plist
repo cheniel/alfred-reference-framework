@@ -42,7 +42,7 @@
 				<key>runningsubtext</key>
 				<string>Searching {planets}</string>
 				<key>script</key>
-				<string>./arf/main.sh arf/data/static.arf {query} # --static
+				<string>./arf/main.sh arf/data/static.arf {query} --static
 
 # To toggle ARF+, which allows for dynamic generation of 
 # data through the creation of the temporary .arf file 

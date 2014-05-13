@@ -1,0 +1,7 @@
+ARF stands for Alfred Reference Framework
+It is the framework used to create this workflow, primarily assisting with the display of information on a result without leaving alfred.
+
+Here is the github page: 
+https://github.com/cheniel/alfred-reference-framework
+
+ARF developers, please do not delete this file.
