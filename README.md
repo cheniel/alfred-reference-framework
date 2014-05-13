@@ -138,16 +138,37 @@ To choose what is displayed when no calls to addData are made because of the use
 ### Result-specific Icons
 The previous guides for static and dynamic modes show how to set a default icon for a specific field. If you want to generate a custom icon for a specific result in a field, you have to add images to arf/img/fN where N is the number of the field that you want to have a custom icon in.
 
-Here is an example of custom icons for 
+Here is an example of custom icons for results in field 1.
 
+<img src="http://www.danieljchen.com/images/project/arf/img-filesystem.png"><br>
+
+For the icon to display alongside the result, the name of the file must be the same as the name of the result. Nothing else needs to be done. Running ARF on static mode with the sample data, we can see that this works.
+
+<img src="http://www.danieljchen.com/images/project/arf/search.png"><br>
+
+This applies for any and all of the fields that you use. They just have to be in the correct folder (e.g. f1).
 
 ### Interactivity
-Interactivity can be added in either static or dynamic mode. 
+Interactivity can be added in either static or dynamic mode. It occurs in the display mode, after a result is selected, as in the image below.
 
+<img src="https://github.com/cheniel/alfred-tea-master/raw/master/samples/details.png" width="50%">
+
+Interactivity in this example refers to the ability to perform a google search on the tea (field 1), view similar types (field 2) and start a timer (field 5). 
+
+There are two kinds of interactions that can occur when a user selects a display item; query replacement and script run. In the example above, field 1 and 5 are script runs and field 2 is a query replacement.
+
+<ol>
+<li> <b>Query Replacement</b> is when the user's argument is modified on selection of a result. This is actually the primary method of navigation in ARF+ and occurs when you select a result or a back button. To enable this, set the field validity to "no" and autocomplete to whatever you want the user's query to be replaced with.
+<li> <b>Script run</b> is when a script is run on the selection of a result. This could include interactions with some API, opening a webpage, or filesystem modification, etc. To create script run interactivity, set validity to "yes" and the argument to some keyword, such as "openHelpWebpage". When the field is selected with script run, the argument is passed to the <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/scripts/actions.sh">actions.sh</a> script to be processed. Just create a conditional checking that the argument is "openHelpWebPage" and run the appropriate script.
+</ol>
+
+See guides for static mode and dynamic mode above to see how you can change these attributes based on the field.
+
+Take a look at the <a href="https://github.com/cheniel/alfred-tea-master">Alfred Tea Master Workflow</a> to see an example of what interactivity is.
 
 
 ## Development
-Actively under development, currently functional on static mode. v1.0 will be when arf+ is finished. ARF+ is a library that will allow for the dynamic generation of results that can be searched and displayed. This will allow dynamic information to be retrieved from the web and other sources. Please feel free to contribute.
+Please feel free to contribute. 
 
 ###Future Additions / Potential Pull Requests
 <ul>
