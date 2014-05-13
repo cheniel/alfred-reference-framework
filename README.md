@@ -3,8 +3,31 @@
 
 Framework for Alfred written in Bash which makes it easy to create workflows to search and look up information without leaving the Alfred interface. This gets around the issue caused by the fact that <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">"Script Filters are the only way to pass feedback to Alfred"</a>. 
 
-## How it works:
+<ul>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#how-it-works">How it works</a>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#installation">Installation</a>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#installation">Creating an ARF Workflow</a>
+  <ul>
+    <li> <a href="https://github.com/cheniel/alfred-reference-framework#static-mode">Static Mode</a>
+    <li> <a href="https://github.com/cheniel/alfred-reference-framework#dynamic-mode">Dynamic Mode</a>
+      <ul>
+        <li> <a href="https://github.com/cheniel/alfred-reference-framework#setting-preferences">Setting Preferences</a>
+        <li> <a href="https://github.com/cheniel/alfred-reference-framework#adding-data">Adding Data</a>
+        <li> <a href="https://github.com/cheniel/alfred-reference-framework#setting-a-custom-error-message">Setting a Custom Error Message</a>
+      </ul>
+  </ul>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#result-specific-icons">Setting Result-Specific Icons</a>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#interactivity">Interactivity</a>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#development">Development</a>
+  <ul>
+    <li> <a href="https://github.com/cheniel/alfred-reference-framework#future-additions--potential-pull-requests"> Future Additions / Potential Pull Requests</a>
+    <li> <a href="https://github.com/cheniel/alfred-reference-framework#acknowledgements">Acknowledgements</a>
+  </ul>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#examples">Examples</a>
+</ul>
 
+
+## How it works:
 <ol>
 
 <li> As with all Alfred Workflows, the user begins by typing in workflow's keyword, in this case, "arf"<br>
@@ -81,7 +104,7 @@ If you are just looking to make a very basic workflow to look up data, you proba
 
 <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">Official documentation on the attributes defined in the last three lines.</a>
 
-That's pretty much all you need. For more explanation on how to make a ARF workflow in static mode, take a look at <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/data/static.arf">static.arf</a>, which is commented with instructions. 
+That's all you need! For more explanation on how to make a ARF workflow in static mode, take a look at <a href="https://github.com/cheniel/alfred-reference-framework/blob/master/arf/data/static.arf">static.arf</a>, which is commented with instructions. 
 
 Make sure that you remove all non-data and non-preference lines (including empty lines and comment lines) before production, as it slows down your search.
 
