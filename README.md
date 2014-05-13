@@ -1,12 +1,12 @@
 <img src="https://github.com/cheniel/alfred-reference-framework/raw/master/icon.png" width="100px" height="100px"> Alfred Reference Framework
 ==========================
 
-Framework for Alfred written in Bash which makes it easy to create workflows to search and look up information without leaving the Alfred interface. This gets around the issue caused by the fact that <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">"Script Filters are the only way to pass feedback to Alfred"</a>. 
+Framework for Alfred written in Bash which makes it easy to create workflows to search and look up information without leaving the Alfred interface. This gets around the issue caused by the fact that <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">"Script Filters are the only way to pass feedback to Alfred."</a> 
 
 <ul>
-<li> <a href="https://github.com/cheniel/alfred-reference-framework#how-it-works">How it works</a>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#what-it-does">What it does</a>
 <li> <a href="https://github.com/cheniel/alfred-reference-framework#installation">Installation</a>
-<li> <a href="https://github.com/cheniel/alfred-reference-framework#installation">Creating an ARF Workflow</a>
+<li> <a href="https://github.com/cheniel/alfred-reference-framework#creating-an-arf-workflow">Creating an ARF Workflow</a>
   <ul>
     <li> <a href="https://github.com/cheniel/alfred-reference-framework#static-mode">Static Mode</a>
     <li> <a href="https://github.com/cheniel/alfred-reference-framework#dynamic-mode">Dynamic Mode</a>
@@ -27,7 +27,7 @@ Framework for Alfred written in Bash which makes it easy to create workflows to 
 </ul>
 
 
-## How it works:
+## What it does:
 <ol>
 
 <li> As with all Alfred Workflows, the user begins by typing in workflow's keyword, in this case, "arf"<br>
