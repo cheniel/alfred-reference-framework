@@ -59,6 +59,8 @@ Another example of a static ARF workflow is the <a href="https://github.com/chen
 <li> Using Terminal, cd into this directory
 <li> Once in the directory, delete everything inside of it, then run (with period): git clone https://github.com/cheniel/alfred-reference-framework.git .
 <li> You may want to <a href="http://www.maclife.com/article/columns/terminal_101_creating_aliases_commands">create an alias</a> to make it easy to get to this folder from terminal.
+<li> If you are looking to push this to your own repo, run: git config remote.origin.url [HTTPS of your repo here]
+
 </ol> 
 
 ## Creating an ARF workflow
